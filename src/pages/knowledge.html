@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge — Travers Smith prototype</title>
+  <link rel="home" id="wf-root" href="~/index.html">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li>
+          <li class="breadcrumb-item" aria-current="page">Knowledge</li>
+        </ul>
+      </nav>
+
+      <h1>Knowledge</h1>
+      <p class="page-intro">Briefings, articles, deals, news, podcasts, events and guides from across the firm.</p>
+
+      <!-- Knowledge section search (R28, R29) -->
+      <form class="search-hero" action="~/pages/search.html" method="get" role="search">
+        <input type="hidden" name="type" value="knowledge"><input type="hidden" name="scope" value="knowledge">
+        <div class="search-row">
+          <div class="ta-wrap">
+            <label class="visually-hidden" for="knowledge-q">Search our thinking</label>
+            <input type="search" id="knowledge-q" name="q" data-typeahead data-scope="knowledge" placeholder="Search briefings, articles, podcasts and videos&hellip;" autocomplete="off">
+          </div>
+          <button class="btn" type="submit">Search</button>
+        </div>
+      </form>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Same engine, scoped to Knowledge. On the results page, the counts for people, services and documents stay visible, so a visitor can see what the scope is leaving out (R26, R28).</p>
+
+      <!-- Knowledge by type; News folded in from the utility bar (R06) -->
+      <section aria-labelledby="type-head">
+        <h2 id="type-head" class="section-title">By type</h2>
+        <ul class="tag-links">
+          <li><a href="~/pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Article">Articles <span data-count-ktype="Article"></span></a></li>
+          <li><a href="~/pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Briefing">Briefings <span data-count-ktype="Briefing"></span></a></li>
+          <li><a href="~/pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Deal">Deals <span data-count-ktype="Deal"></span></a></li>
+          <li><a href="~/pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Podcast|Video">Podcasts and video <span data-count-ktype="Podcast|Video"></span></a></li>
+          <li><a href="~/pages/search.html?type=news&amp;sort=newest">News <span data-count-cat="news"></span></a></li>
+          <li><a href="~/pages/search.html?type=events&amp;sort=newest">Events <span data-count-cat="events"></span></a></li>
+          <li><a href="~/pages/search.html?type=documents">Guides and publications (PDF) <span data-count-cat="documents"></span></a></li>
+        </ul>
+      </section>
+
+      <!-- Topics as addressable pages (R13) -->
+      <section aria-labelledby="topic-head">
+        <h2 id="topic-head" class="section-title">Topics</h2>
+        <ul class="tag-links" data-render="topic-links"></ul>
+        <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>In the prototype a topic opens a filtered search. In build each would be a real, indexable topic page with an editorial introduction. Which topics deserve that, and who owns them?</p>
+      </section>
+
+      <section aria-labelledby="latest-head">
+        <h2 id="latest-head" class="section-title">Latest</h2>
+        <div data-latest="6"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>

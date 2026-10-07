@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search configuration — Travers Smith prototype</title>
+  <link rel="home" id="wf-root" href="~/index.html">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="~/pages/search.html">Search</a></li>
+          <li class="breadcrumb-item" aria-current="page">How search is configured</li>
+        </ul>
+      </nav>
+
+      <h1>How search is configured</h1>
+      <p class="page-intro">The ranking, synonyms, filters and promoted results behind every search box, declared as data. This view reads the prototype&rsquo;s live configuration.</p>
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Why it is here</span>When practice areas, offices or content types change, search changes by editing configuration, not by redevelopment (R42). In a first build this lives in configuration files; an editing screen for the synonyms is a later-phase option.</p>
+      <!-- Configuration tables (R42) -->
+      <div id="config-app"></div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced search — Travers Smith prototype</title>
+  <link rel="home" id="wf-root" href="~/index.html">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="~/pages/search.html">Search</a></li>
+          <li class="breadcrumb-item" aria-current="page">Advanced search</li>
+        </ul>
+      </nav>
+
+      <h1>Advanced search</h1>
+      <p class="page-intro">Build a precise search from conditions, without any query syntax.</p>
+
+      <div class="sr-notes">
+        <p class="wf-note" data-note="1"><span class="wf-note-label">Who it is for</span>Business development and knowledge teams answering questions like &ldquo;who are our senior corporate lawyers in Brussels?&rdquo; without raising an IT request (R33).</p>
+        <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Different fields combine with AND; the same field twice combines with OR. The count and the plain-English readout update as you build. &lsquo;Run this search&rsquo; opens the ordinary results page at a link you can share.</p>
+        <p class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Public, or behind the client login for internal teams only?</p>
+      </div>
+
+      <!-- Query builder (R33) -->
+      <div id="builder-app">
+        <div class="field" style="max-width:20rem">
+          <label for="qb-type">Find</label>
+          <select id="qb-type"></select>
+        </div>
+        <div id="qb-rows"></div>
+        <p><button type="button" class="btn btn-secondary btn-small" id="qb-add">+ Add a condition</button></p>
+
+        <div class="qb-readout" aria-live="polite" id="qb-readout"></div>
+
+        <div class="layout-main-aside">
+          <div>
+            <h2 class="section-title"><span id="qb-count" class="qb-count">0</span> <span id="qb-count-label">matches</span></h2>
+            <ul id="qb-preview" class="qb-preview"></ul>
+            <p style="margin-top:1rem"><a class="btn" id="qb-run" href="~/pages/search.html">Run this search</a></p>
+          </div>
+          <aside class="aside-box">
+            <h2>Examples</h2>
+            <ul>
+              <li><button type="button" class="btn-link" data-example="pe-partners">Partners in private equity, London</button></li>
+              <li><button type="button" class="btn-link" data-example="brussels">Brussels lawyers in competition or sanctions</button></li>
+              <li><button type="button" class="btn-link" data-example="pensions-2026">2026 pensions knowledge mentioning trustees</button></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>

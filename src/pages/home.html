@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home — Travers Smith prototype</title>
+  <link rel="home" id="wf-root" href="~/index.html">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+
+      <!-- Home: task-led entry points (R07) -->
+      <h1 class="visually-hidden">Travers Smith</h1>
+      <div class="wf-placeholder ratio-16-9" style="max-height:320px;aspect-ratio:auto;height:280px">Hero: image and headline 16:9 (out of scope for this prototype)</div>
+
+      <section aria-labelledby="tasks-head" style="margin-top:2rem">
+        <h2 id="tasks-head" class="section-title">How can we help?</h2>
+        <form class="search-hero" action="~/pages/search.html" method="get" role="search">
+          <div class="search-row">
+            <div class="ta-wrap">
+              <label class="visually-hidden" for="home-q">Search Travers Smith</label>
+              <input type="search" id="home-q" name="q" data-typeahead placeholder="Search for a lawyer, a service or a topic" autocomplete="off">
+            </div>
+            <button class="btn" type="submit">Search</button>
+          </div>
+        </form>
+        <div class="grid grid-4">
+          <a class="card" href="~/pages/people.html"><span class="card-title">Find a lawyer</span><span class="card-text">By name, service, sector or office.</span></a>
+          <a class="card" href="~/pages/services.html"><span class="card-title">Find a service</span><span class="card-text">Every practice and sub-service, A&ndash;Z.</span></a>
+          <a class="card" href="~/pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest"><span class="card-title">Latest thinking</span><span class="card-text">Briefings, articles, podcasts and events.</span></a>
+          <a class="card" href="#"><span class="card-title">Get in touch</span><span class="card-text">Our offices, and who to call.</span></a>
+        </div>
+        <p class="wf-note" data-note="1"><span class="wf-note-label">Why it is here</span>Task-led entry points sit beside the section menu, not instead of it: the same four tasks appear in the header search overlay on every page (R07, option B3).</p>
+        <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Are these the right four tasks, in this order? The order should follow the audience priority agreed in this workshop.</p>
+      </section>
+
+      <section aria-labelledby="latest-home">
+        <h2 id="latest-home" class="section-title">Latest thinking</h2>
+        <div data-latest="4"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>

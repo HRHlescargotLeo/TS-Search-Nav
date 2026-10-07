@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Travers Smith prototype</title>
+  <link rel="home" id="wf-root" href="~/index.html">
+  <link rel="stylesheet" href="~/css/base.css">
+  <link rel="stylesheet" href="~/css/components.css">
+  <link rel="stylesheet" href="~/css/theme.css">
+</head>
+<body>
+  <!-- @@include header.html -->
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li>
+          <li class="breadcrumb-item" aria-current="page">Services</li>
+        </ul>
+      </nav>
+
+      <!-- Services index: the full A–Z, one click from every page (R03) -->
+      <h1>Services</h1>
+      <p class="page-intro">Every practice and sub-service we offer, in one list. Filter it by typing, or browse by type of work or by sector.</p>
+
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Why it is here</span>Today this list exists only in the body of the Services page, and several live service pages are missing from it. Here it is reachable from the Services menu, the footer and search, and every sub-service is shown, not hidden (R01, R03).</p>
+
+      <!-- Filter-as-you-type over practices and sub-services (R02) -->
+      <div class="field" style="max-width:32rem">
+        <label for="az-filter">Filter services</label>
+        <input type="search" id="az-filter" data-svc-filter="az-tree" placeholder="e.g. pensions, sanctions, GDPR" autocomplete="off">
+        <p class="field-hint">Matches practices and sub-services, and common alternatives: try &lsquo;gdpr&rsquo; or &lsquo;share schemes&rsquo;.</p>
+      </div>
+
+      <section aria-labelledby="az-head">
+        <h2 id="az-head" class="section-title">All practices A&ndash;Z</h2>
+        <div id="az-tree" data-render="service-tree" data-expand-all></div>
+      </section>
+
+      <!-- Groupings as labelled views over the one list (R04) -->
+      <section aria-labelledby="views-head">
+        <h2 id="views-head" class="section-title">By type of work</h2>
+        <p>Four views over the same services. A service can appear in more than one view; it still has one page and one place in the A&ndash;Z.</p>
+        <div data-render="service-views"></div>
+        <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Are these four views the right ones, and does each need its own landing page, or is this list enough?</p>
+      </section>
+
+      <section aria-labelledby="by-sector">
+        <h2 id="by-sector" class="section-title">By sector</h2>
+        <div data-render="sector-list"></div>
+        <p class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Hotels is a live page today with no route in from any menu or from the A&ndash;Z. Here it sits in the sector list, the Services menu and search.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- @@include footer.html -->
+</body>
+</html>

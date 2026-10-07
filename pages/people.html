@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People — Travers Smith prototype</title>
+  <link rel="home" id="wf-root" href="../index.html">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="sticky">
+
+    <!-- Utility bar: rebalanced — Newsroom moves into Knowledge, Join us becomes Careers in the primary menu (R06) -->
+    <nav class="nav-primary" aria-label="Utility">
+      <div class="container site-bar">
+        <a href="../pages/home.html" aria-label="Travers Smith home"><span class="wf-placeholder logo">Travers Smith logo</span></a>
+        <ul class="utility-list">
+          <li><a href="#">Alumni</a></li>
+          <li><a href="#">Client login</a></li>
+          <li><a href="#">Subscribe</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="nav-secondary" aria-label="Primary">
+      <div class="container">
+        <button type="button" class="btn btn-secondary btn-small menu-toggle" aria-expanded="false" aria-controls="primary-menu">Menu</button>
+
+        <ul class="nav-list" id="primary-menu">
+
+          <!-- Services mega-menu: one pattern (R05); every service and sub-service browsable (R01); filter-as-you-type (R02); groupings as labelled views (R04) -->
+          <li class="nav-item has-mega">
+            <a class="nav-link" href="#">Services &#9662;</a>
+            <div class="nav-flyout mega" role="region" aria-label="Services menu">
+              <div class="mega-head">
+                <a class="mega-overview" href="../pages/services.html">Services</a>
+                <a href="../pages/services.html">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
+                <div class="mega-filter">
+                  <label class="visually-hidden" for="mega-svc-filter">Filter services and sub-services</label>
+                  <input type="search" id="mega-svc-filter" data-svc-filter="mega-tree" placeholder="Filter services, e.g. pensions, sanctions, hotels" autocomplete="off">
+                </div>
+              </div>
+              <div class="mega-grid">
+                <div class="mega-col">
+                  <div class="tabs mega-tabs" role="tablist" aria-label="Browse services">
+                    <button type="button" class="tab active" data-tab="mega-panel-az">All practices A&ndash;Z</button>
+                    <button type="button" class="tab" data-tab="mega-panel-views">By type of work</button>
+                    <button type="button" class="tab" data-tab="mega-panel-sectors">By sector</button>
+                  </div>
+                  <div>
+                    <div class="tab-panel active" id="mega-panel-az">
+                      <p class="mega-hint">Every practice, with its sub-services one click away. Numbers show how many sub-services sit beneath each practice.</p>
+                      <div id="mega-tree" data-render="service-tree"></div>
+                    </div>
+                    <div class="tab-panel" id="mega-panel-views">
+                      <p class="mega-hint">Four views over the same list of services. A service can appear in more than one view; each still has one home.</p>
+                      <div data-render="service-views"></div>
+                    </div>
+                    <div class="tab-panel" id="mega-panel-sectors">
+                      <p class="mega-hint">The industries we work in, each drawing on lawyers from several practices.</p>
+                      <div data-render="sector-list"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-featured">
+                  <div class="wf-placeholder ratio-16-9">Image 16:9</div>
+                  <p class="result-type">Featured</p>
+                  <p><a href="#">Hotels: acting for owners, operators and investors across the hotel sector</a></p>
+                  <p class="wf-meta">One editor-chosen item per panel.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- People mega-menu: same pattern (R05); find a lawyer, A–Z and office browse (R07, R41) -->
+          <li class="nav-item has-mega">
+            <a class="nav-link" href="#">People &#9662;</a>
+            <div class="nav-flyout mega" role="region" aria-label="People menu">
+              <div class="mega-head">
+                <a class="mega-overview" href="../pages/people.html">People</a>
+                <a href="../pages/search.html?type=people&amp;scope=people">Browse everyone</a>
+              </div>
+              <div class="mega-grid cols-4">
+                <div class="mega-col">
+                  <h5>Find a lawyer</h5>
+                  <form action="~/pages/search.html" method="get" role="search">
+                    <input type="hidden" name="type" value="people"><input type="hidden" name="scope" value="people">
+                    <div class="ta-wrap">
+                      <label class="visually-hidden" for="mega-people-q">Search for a lawyer</label>
+                      <input type="search" id="mega-people-q" name="q" data-typeahead data-scope="people" placeholder="Name, service or sector" autocomplete="off">
+                    </div>
+                  </form>
+                  <h5 style="margin-top:1rem">By office</h5>
+                  <ul>
+                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=London">London</a></li>
+                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=Brussels">Brussels</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <h5>By surname</h5>
+                  <div class="letter-grid" data-render="letter-grid"></div>
+                </div>
+                <div class="mega-col">
+                  <h5>By position</h5>
+                  <ul>
+                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Partner">Partners</a></li>
+                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Senior%20Counsel">Senior counsel</a></li>
+                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Senior%20Associate">Senior associates</a></li>
+                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Associate">Associates</a></li>
+                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Knowledge%20Lawyer">Knowledge lawyers</a></li>
+                  </ul>
+                </div>
+                <div class="mega-featured">
+                  <p class="result-type">Featured</p>
+                  <p><a href="#">Media contacts</a></p>
+                  <p class="wf-meta">For journalists: who to call, by subject.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics are pages, not filters (R13) -->
+          <li class="nav-item has-mega">
+            <a class="nav-link" href="#">Knowledge &#9662;</a>
+            <div class="nav-flyout mega" role="region" aria-label="Knowledge menu">
+              <div class="mega-head">
+                <a class="mega-overview" href="../pages/knowledge.html">Knowledge</a>
+                <a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
+              </div>
+              <div class="mega-grid cols-4">
+                <div class="mega-col">
+                  <h5>By type</h5>
+                  <ul>
+                    <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Article">Articles</a></li>
+                    <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Briefing">Briefings</a></li>
+                    <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Deal">Deals</a></li>
+                    <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Podcast|Video">Podcasts and video</a></li>
+                    <li><a href="../pages/search.html?type=documents">Guides and publications (PDF)</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <h5>News and events</h5>
+                  <ul>
+                    <li><a href="../pages/search.html?type=news&amp;sort=newest">News</a></li>
+                    <li><a href="../pages/search.html?type=events&amp;sort=newest">Events and training</a></li>
+                    <li><a href="#">Media contacts</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <h5>Topics</h5>
+                  <ul data-render="topic-links"></ul>
+                </div>
+                <div class="mega-featured">
+                  <p class="result-type">Featured</p>
+                  <p><a href="#">Private Capital Forum 2026 &mdash; 12 November, London</a></p>
+                  <p><a href="#">Subscribe to updates</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- About us mega-menu: Difference and International gathered under one item (R05, R06) -->
+          <li class="nav-item has-mega">
+            <a class="nav-link" href="#">About us &#9662;</a>
+            <div class="nav-flyout mega" role="region" aria-label="About us menu">
+              <div class="mega-head">
+                <a class="mega-overview" href="#">About us</a>
+              </div>
+              <div class="mega-grid cols-4">
+                <div class="mega-col">
+                  <h5>Our difference</h5>
+                  <ul>
+                    <li><a href="#">How we work</a></li>
+                    <li><a href="#">Responsible business</a></li>
+                    <li><a href="#">Pro bono and community engagement</a></li>
+                    <li><a href="#">Environment</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <h5>Our work</h5>
+                  <ul>
+                    <li><a href="#">Case studies</a></li>
+                    <li><a href="#">International</a></li>
+                    <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Deal">Recent deals</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <h5>The firm</h5>
+                  <ul>
+                    <li><a href="#">Our offices</a></li>
+                    <li><a href="#">Alumni</a></li>
+                    <li><a href="#">Contact us</a></li>
+                  </ul>
+                </div>
+                <div class="mega-featured">
+                  <p class="result-type">Featured</p>
+                  <p><a href="#">Case study: ten years of the community legal clinic</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Careers mega-menu: promoted from the utility bar (R06) -->
+          <li class="nav-item has-mega">
+            <a class="nav-link" href="#">Careers &#9662;</a>
+            <div class="nav-flyout mega" role="region" aria-label="Careers menu">
+              <div class="mega-head">
+                <a class="mega-overview" href="#">Careers</a>
+                <a href="#">Current vacancies</a>
+              </div>
+              <div class="mega-grid cols-4">
+                <div class="mega-col">
+                  <h5>Early careers</h5>
+                  <ul>
+                    <li><a href="#">Trainee solicitors</a></li>
+                    <li><a href="#">Vacation schemes</a></li>
+                    <li><a href="#">Events and open days</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <h5>Experienced hires</h5>
+                  <ul>
+                    <li><a href="#">Associates</a></li>
+                    <li><a href="#">Business services</a></li>
+                  </ul>
+                </div>
+                <div class="mega-col">
+                  <h5>Life at the firm</h5>
+                  <ul>
+                    <li><a href="#">Inclusion and diversity</a></li>
+                    <li><a href="#">Benefits</a></li>
+                  </ul>
+                </div>
+                <div class="mega-featured">
+                  <p class="result-type">Featured</p>
+                  <p><a href="#">Training contract applications open</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Task-led entry points (R07) -->
+        <div class="header-actions">
+          <a class="task-link" href="../pages/people.html">Find a lawyer</a>
+          <button type="button" class="btn btn-small" data-modal-open="search-overlay">Search</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="flyout-backdrop" aria-hidden="true"></div>
+
+  <!-- Search overlay: one box over the whole index, with typeahead and task entry points (R07, R20, R29) -->
+  <div class="wf-modal search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-overlay-title">
+    <div class="wf-modal-panel">
+      <button type="button" class="wf-modal-close" aria-label="Close search">&times;</button>
+      <h2 id="search-overlay-title">Search Travers Smith</h2>
+      <form action="~/pages/search.html" method="get" role="search">
+        <div class="search-row">
+          <div class="ta-wrap">
+            <label class="visually-hidden" for="overlay-q">Search people, services and knowledge</label>
+            <input type="search" id="overlay-q" name="q" data-typeahead placeholder="Search people, services, insights and documents" autocomplete="off">
+          </div>
+          <button class="btn" type="submit">Search</button>
+        </div>
+      </form>
+      <div class="search-tasks">
+        <a href="../pages/people.html">Find a lawyer</a>
+        <a href="../pages/services.html">Find a service</a>
+        <a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
+        <a href="#">Get in touch</a>
+      </div>
+      <p class="wf-meta">Popular searches</p>
+      <ul class="chip-list">
+        <li><a href="../pages/search.html?q=private%20equity">private equity</a></li>
+        <li><a href="../pages/search.html?q=pensions%20buyout">pensions buyout</a></li>
+        <li><a href="../pages/search.html?q=sanctions">sanctions</a></li>
+        <li><a href="../pages/search.html?q=careers">careers</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+  <main id="main" tabindex="-1">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ul class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../pages/home.html">Home</a></li>
+          <li class="breadcrumb-item" aria-current="page">People</li>
+        </ul>
+      </nav>
+
+      <h1>People</h1>
+      <p class="page-intro">Find a lawyer by name, service, sector or office.</p>
+
+      <!-- People section search: the unified engine with a People scope (R28, R29) -->
+      <section aria-labelledby="find-head">
+        <h2 id="find-head" class="visually-hidden">Find a lawyer</h2>
+        <form class="search-hero" action="~/pages/search.html" method="get" role="search">
+          <input type="hidden" name="type" value="people"><input type="hidden" name="scope" value="people">
+          <div class="search-row">
+            <div class="ta-wrap">
+              <label class="visually-hidden" for="people-q">Search for a lawyer</label>
+              <input type="search" id="people-q" name="q" data-typeahead data-scope="people" placeholder="Search for a lawyer by name, service or sector&hellip;" autocomplete="off">
+            </div>
+            <button class="btn" type="submit">Search</button>
+          </div>
+        </form>
+        <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Typing a service here (try &lsquo;priv&rsquo; or &lsquo;gdpr&rsquo;) offers to show the people in that service. Results open on the site search with a removable &lsquo;People only&rsquo; chip, so someone who doesn&rsquo;t find what they need is one click from searching everything (R28, F25).</p>
+      </section>
+
+      <!-- A–Z and office browse (R41) -->
+      <div class="grid grid-3">
+        <section class="aside-box">
+          <h2>By surname</h2>
+          <div class="letter-grid" data-render="letter-grid"></div>
+        </section>
+        <section class="aside-box">
+          <h2>By office</h2>
+          <ul>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=London">London</a> <span class="wf-meta" data-count-people="office=London"></span></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=Brussels">Brussels</a> <span class="wf-meta" data-count-people="office=Brussels"></span></li>
+          </ul>
+        </section>
+        <section class="aside-box">
+          <h2>By position</h2>
+          <ul>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Partner">Partners</a> <span class="wf-meta" data-count-people="position=Partner"></span></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Senior%20Counsel">Senior counsel</a> <span class="wf-meta" data-count-people="position=Senior Counsel"></span></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Senior%20Associate">Senior associates</a> <span class="wf-meta" data-count-people="position=Senior Associate"></span></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Associate">Associates</a> <span class="wf-meta" data-count-people="position=Associate"></span></li>
+          </ul>
+        </section>
+      </div>
+      <p><a class="btn btn-secondary" href="../pages/search.html?type=people&amp;scope=people&amp;sort=az">Browse everyone A&ndash;Z</a></p>
+      <p class="wf-note" data-note="2"><span class="wf-note-label">Why it is here</span>Today the directory has no office filter and no alphabetical index. Both are here, and both are ordinary filters on the same search, so they combine with service and sector.</p>
+
+    </div>
+  </main>
+
+  <!-- Footer: secondary routes into the same IA; the A–Z of services is one click from every page (R03) -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../pages/services.html">A&ndash;Z of services</a></li>
+            <li><a href="../pages/services.html#by-sector">Sectors</a></li>
+            <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Deal">Recent deals</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>People</h4>
+          <ul>
+            <li><a href="../pages/people.html">Find a lawyer</a></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=London">London office</a></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=Brussels">Brussels office</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Knowledge</h4>
+          <ul>
+            <li><a href="../pages/knowledge.html">All knowledge</a></li>
+            <li><a href="../pages/search.html?type=news&amp;sort=newest">News</a></li>
+            <li><a href="../pages/search.html?type=events&amp;sort=newest">Events</a></li>
+            <li><a href="../pages/advanced-search.html">Advanced search</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>The firm</h4>
+          <ul>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Legal and regulatory</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Travers Smith &mdash; search and navigation prototype v1</span>
+        <span>Wireframe: structure and behaviour only, not a design. Fictional people and content.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/engine.js"></script>
+  <script src="../js/wireframe.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="../js/typeahead.js"></script>
+  <script src="../js/search-page.js"></script>
+  <script src="../js/pages.js"></script>
+  <script src="../js/builder.js"></script>
+
+</body>
+</html>
