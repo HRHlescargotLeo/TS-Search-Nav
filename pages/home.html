@@ -19,7 +19,6 @@
         <a href="../pages/home.html" aria-label="Travers Smith home"><span class="wf-placeholder logo">Travers Smith logo</span></a>
         <ul class="utility-list">
           <li><a href="#">Alumni</a></li>
-          <li><a href="#">Client login</a></li>
           <li><a href="#">Subscribe</a></li>
           <li><a href="#">Contact us</a></li>
         </ul>
@@ -37,8 +36,8 @@
             <a class="nav-link" href="#">Services &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Services menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/services.html">Services</a>
-                <a href="../pages/services.html">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
+                <a class="mega-overview" href="../pages/existing.html?page=services">Services</a>
+                <a href="../pages/existing.html?page=services">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
                 <div class="mega-filter">
                   <label class="visually-hidden" for="mega-svc-filter">Filter services and sub-services</label>
                   <input type="search" id="mega-svc-filter" data-svc-filter="mega-tree" placeholder="Filter services, e.g. pensions, sanctions, hotels" autocomplete="off">
@@ -81,7 +80,7 @@
             <a class="nav-link" href="#">People &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="People menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/people.html">People</a>
+                <a class="mega-overview" href="../pages/search.html?type=people&amp;scope=people">People</a>
                 <a href="../pages/search.html?type=people&amp;scope=people">Browse everyone</a>
               </div>
               <div class="mega-grid cols-4">
@@ -123,12 +122,12 @@
             </div>
           </li>
 
-          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics are pages, not filters (R13) -->
+          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics open the Knowledge index filtered by topic -->
           <li class="nav-item has-mega">
             <a class="nav-link" href="#">Knowledge &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Knowledge menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/knowledge.html">Knowledge</a>
+                <a class="mega-overview" href="../pages/search.html?type=knowledge&amp;scope=knowledge">Knowledge</a>
                 <a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
               </div>
               <div class="mega-grid cols-4">
@@ -246,7 +245,7 @@
 
         <!-- Task-led entry points (R07) -->
         <div class="header-actions">
-          <a class="task-link" href="../pages/people.html">Find a lawyer</a>
+          <a class="task-link" href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a>
           <button type="button" class="btn btn-small" data-modal-open="search-overlay">Search</button>
         </div>
       </div>
@@ -269,8 +268,8 @@
         </div>
       </form>
       <div class="search-tasks">
-        <a href="../pages/people.html">Find a lawyer</a>
-        <a href="../pages/services.html">Find a service</a>
+        <a href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a>
+        <a href="../pages/search.html?type=services">Find a service</a>
         <a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
         <a href="#">Get in touch</a>
       </div>
@@ -287,37 +286,10 @@
 
   <main id="main" tabindex="-1">
     <div class="container">
-
-      <!-- Home: task-led entry points (R07) -->
+      <!-- Home: the existing home page, unchanged. Start here to try the header, menus and search. -->
       <h1 class="visually-hidden">Travers Smith</h1>
-      <div class="wf-placeholder ratio-16-9" style="max-height:320px;aspect-ratio:auto;height:280px">Hero: image and headline 16:9 (out of scope for this prototype)</div>
-
-      <section aria-labelledby="tasks-head" style="margin-top:2rem">
-        <h2 id="tasks-head" class="section-title">How can we help?</h2>
-        <form class="search-hero" action="~/pages/search.html" method="get" role="search">
-          <div class="search-row">
-            <div class="ta-wrap">
-              <label class="visually-hidden" for="home-q">Search Travers Smith</label>
-              <input type="search" id="home-q" name="q" data-typeahead placeholder="Search for a lawyer, a service or a topic" autocomplete="off">
-            </div>
-            <button class="btn" type="submit">Search</button>
-          </div>
-        </form>
-        <div class="grid grid-4">
-          <a class="card" href="../pages/people.html"><span class="card-title">Find a lawyer</span><span class="card-text">By name, service, sector or office.</span></a>
-          <a class="card" href="../pages/services.html"><span class="card-title">Find a service</span><span class="card-text">Every practice and sub-service, A&ndash;Z.</span></a>
-          <a class="card" href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest"><span class="card-title">Latest thinking</span><span class="card-text">Briefings, articles, podcasts and events.</span></a>
-          <a class="card" href="#"><span class="card-title">Get in touch</span><span class="card-text">Our offices, and who to call.</span></a>
-        </div>
-        <p class="wf-note" data-note="1"><span class="wf-note-label">Why it is here</span>Task-led entry points sit beside the section menu, not instead of it: the same four tasks appear in the header search overlay on every page (R07, option B3).</p>
-        <p class="wf-note query" data-note="2"><span class="wf-note-label">Open question</span>Are these the right four tasks, in this order? The order should follow the audience priority agreed in this workshop.</p>
-      </section>
-
-      <section aria-labelledby="latest-home">
-        <h2 id="latest-home" class="section-title">Latest thinking</h2>
-        <div data-latest="4"></div>
-      </section>
-
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Start here</span>Everything this work changes is in the header, the footer and search. The page body is the existing home page, unchanged. Try the menus above, the Search button and Find a lawyer.</p>
+      <div class="wf-placeholder unchanged tall">Existing home page &mdash; layout and content unchanged by this work</div>
     </div>
   </main>
 
@@ -328,15 +300,15 @@
         <div class="footer-column">
           <h4>Services</h4>
           <ul>
-            <li><a href="../pages/services.html">A&ndash;Z of services</a></li>
-            <li><a href="../pages/services.html#by-sector">Sectors</a></li>
+            <li><a href="../pages/existing.html?page=services">A&ndash;Z of services</a></li>
+            <li><a href="../pages/search.html?type=services">Search services and sectors</a></li>
             <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Deal">Recent deals</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h4>People</h4>
           <ul>
-            <li><a href="../pages/people.html">Find a lawyer</a></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a></li>
             <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=London">London office</a></li>
             <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=Brussels">Brussels office</a></li>
           </ul>
@@ -344,7 +316,7 @@
         <div class="footer-column">
           <h4>Knowledge</h4>
           <ul>
-            <li><a href="../pages/knowledge.html">All knowledge</a></li>
+            <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge">All knowledge</a></li>
             <li><a href="../pages/search.html?type=news&amp;sort=newest">News</a></li>
             <li><a href="../pages/search.html?type=events&amp;sort=newest">Events</a></li>
             <li><a href="../pages/advanced-search.html">Advanced search</a></li>

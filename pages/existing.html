@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module library — Travers Smith prototype</title>
+  <title>Existing page — Travers Smith prototype</title>
   <link rel="home" id="wf-root" href="../index.html">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/components.css">
@@ -286,72 +286,9 @@
 
   <main id="main" tabindex="-1">
     <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ul class="breadcrumb-list">
-          <li class="breadcrumb-item"><a href="../index.html">Contents</a></li>
-          <li class="breadcrumb-item" aria-current="page">Module library</li>
-        </ul>
-      </nav>
-
-      <h1>Module library</h1>
-      <p class="page-intro">Every navigation and search component in the prototype, shown once. Nothing here is a page component: page templates are not changed by this work.</p>
-
-      <!-- Mega-menu panel (R05) -->
-      <section>
-        <h2 class="section-title">1. Mega-menu panel</h2>
-        <p>Used by every primary item: an overview link that matches the destination&rsquo;s H1, the section&rsquo;s children, and one featured item. Open any item in the header above to see it live.</p>
-        <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Opens on hover, keyboard focus or click; never hover-only. Escape closes it and returns focus to the item. At mobile width the same panels open in place under a Menu button, with the same content (R11).</p>
-      </section>
-
-      <!-- Filterable service tree (R01, R02) -->
-      <section>
-        <h2 class="section-title">2. Filterable service tree</h2>
-        <div class="field" style="max-width:28rem">
-          <label for="lib-filter">Filter services</label>
-          <input type="search" id="lib-filter" data-svc-filter="lib-tree" placeholder="e.g. gdpr, hotels, share schemes" autocomplete="off">
-        </div>
-        <div id="lib-tree" data-render="service-tree"></div>
-        <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>The number beside a practice opens its sub-services. Typing filters practices and sub-services together, opens the branches that matched, and uses the same synonym map as search. The same module sits in the Services menu and on the A&ndash;Z page.</p>
-      </section>
-
-      <!-- Typeahead (R29) -->
-      <section>
-        <h2 class="section-title">3. Search box with typeahead</h2>
-        <form action="~/pages/search.html" method="get" role="search" style="max-width:36rem">
-          <div class="search-row">
-            <div class="ta-wrap">
-              <label class="visually-hidden" for="lib-q">Search</label>
-              <input type="search" id="lib-q" name="q" data-typeahead placeholder="Try priv, gdpr, eleanor" autocomplete="off">
-            </div>
-            <button class="btn" type="submit">Search</button>
-          </div>
-        </form>
-        <p class="wf-note" data-note="3"><span class="wf-note-label">Behaviour</span>Services, sectors and topics first, then people, then pages. A suggestion found through a synonym says so (&lsquo;matches gdpr&rsquo;). With a scope set, the same box behaves for its section: in People, choosing a service shows the people in it. Up and Down move, Enter chooses, Escape closes.</p>
-      </section>
-
-      <!-- Chips (R24, R28) -->
-      <section>
-        <h2 class="section-title">4. Filter chips</h2>
-        <div class="chips">
-          <button type="button" class="chip scope"><span><span class="chip-k">Searching:</span> People only</span><span class="x" aria-hidden="true">&times;</span></button>
-          <button type="button" class="chip"><span><span class="chip-k">Position:</span> Partner</span><span class="x" aria-hidden="true">&times;</span></button>
-          <button type="button" class="chip"><span><span class="chip-k">Office:</span> London</span><span class="x" aria-hidden="true">&times;</span></button>
-          <button type="button" class="btn-link">Clear all</button>
-        </div>
-        <p class="wf-note" data-note="4"><span class="wf-note-label">Behaviour</span>A dashed chip is a section scope; removing it widens the search to the whole site. A solid chip is a filter. Each is one click to remove.</p>
-      </section>
-
-      <!-- Result types (R37, R32, R50) -->
-      <section>
-        <h2 class="section-title">5. Results, by type</h2>
-        <article class="result promoted"><div><p class="result-type">Promoted &middot; Page</p><h3><a href="#"><mark>Careers</mark> at Travers Smith</a></h3><p class="result-meta">Careers</p><p class="result-snippet">Trainee solicitors, associates and business services roles.</p></div></article>
-        <article class="result has-avatar"><div class="wf-placeholder avatar">Photo</div><div><p class="result-type">Person</p><h3><a href="#">Eleanor Hartwell</a></h3><p class="result-meta">Partner &middot; Private Equity &amp; Financial Sponsors &middot; London</p><p class="result-snippet">Advises <mark>private equity</mark> sponsors on buyouts, bolt-ons and exits across the mid-market.</p></div></article>
-        <article class="result"><div><p class="result-type">Sub-service</p><h3><a href="#"><mark>Private Equity</mark> &amp; Financial Sponsors</a></h3><p class="result-meta">Sub-service of Corporate M&amp;A</p><p class="result-snippet">Part of our Corporate M&amp;A practice.</p></div></article>
-        <article class="result"><div><p class="result-type">Briefing</p><h3><a href="#">Continuation funds: what LPs are asking for in 2026</a></h3><p class="result-meta">Briefing &middot; 18 Sep 2026 &middot; Marcus Adeyemi</p><p class="result-snippet">GP-led <mark>secondaries</mark> have matured&hellip;</p></div></article>
-        <article class="result"><div><p class="result-type">PDF</p><h3><a href="#">Guide - Hybrid working policies.pdf</a></h3><p class="result-meta">PDF &middot; 14 pages &middot; 3 Nov 2025</p><p class="result-snippet"><span class="pg">Matched on page 6:</span> &ldquo;Monitoring of remote workers engages data protection obligations; a data protection impact assessment is usually required before <mark>monitoring software</mark> is introduced.&rdquo;</p></div></article>
-        <p class="wf-note" data-note="5"><span class="wf-note-label">Behaviour</span>Every result says what it is before it is clicked. People show role, practice and office. A PDF shows the page the match was found on. A promoted result is a later-phase option.</p>
-      </section>
-
+      <!-- Destination page: an existing page, unchanged -->
+      <p class="wf-note" data-note="1"><span class="wf-note-label">Out of scope</span>This page exists today and is not changed by this work. The navigation now links to it.</p>
+      <div id="existing-app"></div>
     </div>
   </main>
 

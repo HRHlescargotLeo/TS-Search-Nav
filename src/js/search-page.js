@@ -69,6 +69,8 @@
     var input = $('sr-q');
     if (input && document.activeElement !== input) input.value = state.q;
 
+    renderHeading();
+    renderLetters();
     renderBanners(r);
     renderTabs(r);
     renderChips();
@@ -85,6 +87,44 @@
     }
 
     if (focusId && $(focusId)) $(focusId).focus({ preventScroll: true });
+  }
+
+  /* The People directory and the Knowledge index are this page with a scope
+     applied, so the heading follows the scope (R28). */
+  var HEADINGS = {
+    people: ['People', 'Find a lawyer by name, service, sector or office.', 'Search for a lawyer by name, service or sector\u2026'],
+    knowledge: ['Knowledge', 'Briefings, articles, deals, podcasts, videos and events.', 'Search briefings, articles, podcasts and videos\u2026'],
+    '': ['Search', '', 'Search people, services, insights and documents']
+  };
+  function renderHeading() {
+    var h = HEADINGS[state.scope === 'people' || state.scope === 'knowledge' ? state.scope : ''];
+    $('sr-title').textContent = h[0];
+    $('sr-crumb').textContent = h[0];
+    $('sr-intro').textContent = h[1];
+    $('sr-intro').hidden = !h[1];
+    var input = $('sr-q');
+    input.setAttribute('placeholder', h[2]);
+    input.setAttribute('data-scope', state.scope === 'people' || state.scope === 'knowledge' ? state.scope : '');
+    document.title = h[0] + ' \u2014 Travers Smith prototype';
+  }
+
+  /* Surname A–Z, shown whenever results are limited to people (R41). */
+  function renderLetters() {
+    var host = $('sr-letters');
+    if (state.type !== 'people') { host.hidden = true; host.innerHTML = ''; return; }
+    var have = {};
+    TS.people.forEach(function (p) {
+      var parts = p.name.split(' ');
+      have[TS.norm(parts[parts.length - 1]).charAt(0).toUpperCase()] = true;
+    });
+    var html = '<span class="wf-meta" id="letters-label">Surname</span><span class="letter-row" role="group" aria-labelledby="letters-label">';
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').forEach(function (L) {
+      html += have[L]
+        ? '<button type="button" id="letter-' + L + '" data-letter="' + L + '" aria-pressed="' + (state.letter === L) + '">' + L + '</button>'
+        : '<span aria-hidden="true">' + L + '</span>';
+    });
+    host.innerHTML = html + '</span>';
+    host.hidden = false;
   }
 
   function renderBanners(r) {
@@ -295,7 +335,7 @@
       if (fixed.correctedTo) tips.push('Did you mean <a href="?' + new URLSearchParams({ q: fixed.correctedTo }).toString() + '">' + q(fixed.correctedTo) + '</a>?');
     }
     tips.push('Try a broader or different word: we match common alternatives, such as <em>GDPR</em> for <em>data protection</em>');
-    tips.push('<a href="' + TS.pageUrl('services.html') + '">Browse the A–Z of services</a> or <a href="' + TS.pageUrl('people.html') + '">find a lawyer</a>');
+    tips.push('<a href="' + TS.pageUrl('existing.html', { page: 'services' }) + '">Browse the A–Z of services</a> or <a href="' + TS.pageUrl('search.html', { type: 'people', scope: 'people' }) + '">find a lawyer</a>');
     tips.push('<a href="#">Contact us</a>: tell us what you need and we will put you in touch with the right person');
     return '<!-- Zero results (R38) --><div class="zero"><h2>No results for ' + q(state.q) + '</h2><ul>' +
       tips.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul></div>';
@@ -334,7 +374,10 @@
       if (!t || !app.contains(t)) return;
       var act = t.getAttribute('data-action');
 
-      if (t.hasAttribute('data-type')) {
+      if (t.hasAttribute('data-letter')) {
+        var L = t.getAttribute('data-letter');
+        update(function (st) { st.letter = st.letter === L ? '' : L; st.page = 1; });
+      } else if (t.hasAttribute('data-type')) {
         var type = t.getAttribute('data-type');
         update(function (s) {
           s.type = type; s.page = 1;

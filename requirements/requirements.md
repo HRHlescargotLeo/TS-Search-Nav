@@ -12,6 +12,17 @@ SP1–SP11 for the eleven sections of *Smarter site search for traverssmith.com*
 **Report requirement** maps each line to the draft requirements in Appendix B of the
 observations report (N01–N21, S01–S36).
 
+## Scope
+
+Navigation and search only: the header and its menus, the footer, the search box and
+overlay, the results page, and the two section searches that exist today. Page templates
+and the components on them are not changed; service, profile and other pages appear only as
+placeholders for the menus and search to land on. Four earlier lines were removed for that
+reason and are recorded in the report's backlog: sub-services listed on the service page
+(was R08), parent and siblings on a sub-service page (was R10), topic propositions as pages
+(was R13), and profile links and related people (was R35, report S28 and S29). A scoped
+search box on service pages was also removed from R28.
+
 ## Report requirements the prototype does not show
 
 N16 (the role of the HTML sitemap) and N21 (governance for adding a service) are decisions,
@@ -29,13 +40,10 @@ labels) are shown only in part, because the labels need Travers Smith's input.
 | R04 | The five groupings are offered as labelled views over one service tree, not as the tree itself. | A2 | N01, N09 |
 | R05 | Every primary item opens the same panel pattern: an overview link, its children and one featured item. | B1 | N07, N10 |
 | R06 | Primary navigation is rebalanced: Careers becomes primary, the Newsroom moves into Knowledge as News, Difference and International move under About us. | B2 | N08, N11, N12 |
-| R07 | Task-led entry points (find a lawyer, find a service, latest thinking, get in touch) sit in the header search and on the home page. | B3 | N13, N14 |
-| R08 | A service page lists its sub-services directly beneath the introduction, not low down the page. | F02 | N02 |
-| R09 | Every page below the top level carries a breadcrumb reflecting its single canonical position. | A2 | N20 |
-| R10 | A sub-service page shows its parent and its sibling sub-services. | F02 | N20 |
+| R07 | Task-led entry points (find a lawyer, find a service, latest thinking, get in touch) sit in the header and the search overlay. | B3 | N13, N14 |
+| R09 | The existing breadcrumb reflects the page's single position in the navigation. | A2 | N20 |
 | R11 | Navigation is keyboard operable, dismissible with Escape, never hover-only, and keeps the same IA at 320px. | B1 | N17, N18, N19 |
 | R12 | The label a user clicks matches the H1 of the page it opens. | B1 | N05, N06 |
-| R13 | Topic propositions promoted from Knowledge are addressable pages, not query-string filters. | B1 | — |
 
 ## Search
 
@@ -49,14 +57,13 @@ labels) are shown only in part, because the labels need Travers Smith's input.
 | R25 | Facets can be laid out as a sidebar or as a top bar. | SP2 | — |
 | R26 | While filtered to one content type, the counts for every other type stay visible and accurate. | SP2 | S09, S15 |
 | R27 | The whole search state (query, filters, sort, page, layout) lives in the URL and can be copied as a link. | SP2 | S30, S32 |
-| R28 | Section searches (People, Knowledge, each service page) run on the same engine as a pre-applied scope, shown as a removable chip, widened to the whole site in one click. | SP3, F25 | S13, S14 |
+| R28 | The existing section searches (People directory, Knowledge index) run on the same engine as a pre-applied scope, shown as a removable chip, widened to the whole site in one click. | SP3, F25 | S13, S14 |
 | R29 | Typeahead suggests services, sectors and topics first, then people, then pages, and understands synonyms. | SP4 | S18 |
 | R30 | A query with no results is retried against a spelling correction, and the user is told, with a link to search for the original. | SP5 | S20 |
 | R31 | A synonym map connects client language to firm language, and the results say when a synonym was used. | SP5 | S19 |
 | R32 | PDF documents are indexed on their full text; a result shows the page that matched and ranks below the firm's own pages. | SP6, F24 | S04 |
 | R33 | An advanced query builder combines conditions without syntax, with a live match count and a plain-English readout. | SP7 | S27 |
 | R34 | With no query, search offers a browsable, categorised view of everything, with counts. | SP8 | S16 |
-| R35 | A profile page turns its service, sector and office into links to the filtered directory, and shows related people generated from the same metadata. | SP9, F26 | S28, S29 |
 | R36 | Sort by relevance (default), newest, oldest, publication year or A–Z. | SP10 | S05, S08 |
 | R37 | A result says what it is before it is clicked; people results show role, practice and office. | SP1 | S10, S12 |
 | R38 | The zero-results state offers a correction, a broader search and a route to contact. | SP5 | S21 |

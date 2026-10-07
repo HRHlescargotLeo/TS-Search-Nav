@@ -19,7 +19,6 @@
         <a href="../pages/home.html" aria-label="Travers Smith home"><span class="wf-placeholder logo">Travers Smith logo</span></a>
         <ul class="utility-list">
           <li><a href="#">Alumni</a></li>
-          <li><a href="#">Client login</a></li>
           <li><a href="#">Subscribe</a></li>
           <li><a href="#">Contact us</a></li>
         </ul>
@@ -37,8 +36,8 @@
             <a class="nav-link" href="#">Services &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Services menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/services.html">Services</a>
-                <a href="../pages/services.html">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
+                <a class="mega-overview" href="../pages/existing.html?page=services">Services</a>
+                <a href="../pages/existing.html?page=services">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
                 <div class="mega-filter">
                   <label class="visually-hidden" for="mega-svc-filter">Filter services and sub-services</label>
                   <input type="search" id="mega-svc-filter" data-svc-filter="mega-tree" placeholder="Filter services, e.g. pensions, sanctions, hotels" autocomplete="off">
@@ -81,7 +80,7 @@
             <a class="nav-link" href="#">People &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="People menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/people.html">People</a>
+                <a class="mega-overview" href="../pages/search.html?type=people&amp;scope=people">People</a>
                 <a href="../pages/search.html?type=people&amp;scope=people">Browse everyone</a>
               </div>
               <div class="mega-grid cols-4">
@@ -123,12 +122,12 @@
             </div>
           </li>
 
-          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics are pages, not filters (R13) -->
+          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics open the Knowledge index filtered by topic -->
           <li class="nav-item has-mega">
             <a class="nav-link" href="#">Knowledge &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Knowledge menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/knowledge.html">Knowledge</a>
+                <a class="mega-overview" href="../pages/search.html?type=knowledge&amp;scope=knowledge">Knowledge</a>
                 <a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
               </div>
               <div class="mega-grid cols-4">
@@ -246,7 +245,7 @@
 
         <!-- Task-led entry points (R07) -->
         <div class="header-actions">
-          <a class="task-link" href="../pages/people.html">Find a lawyer</a>
+          <a class="task-link" href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a>
           <button type="button" class="btn btn-small" data-modal-open="search-overlay">Search</button>
         </div>
       </div>
@@ -269,8 +268,8 @@
         </div>
       </form>
       <div class="search-tasks">
-        <a href="../pages/people.html">Find a lawyer</a>
-        <a href="../pages/services.html">Find a service</a>
+        <a href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a>
+        <a href="../pages/search.html?type=services">Find a service</a>
         <a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
         <a href="#">Get in touch</a>
       </div>
@@ -291,15 +290,16 @@
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ul class="breadcrumb-list">
           <li class="breadcrumb-item"><a href="../pages/home.html">Home</a></li>
-          <li class="breadcrumb-item" aria-current="page">Search</li>
+          <li class="breadcrumb-item" aria-current="page" id="sr-crumb">Search</li>
         </ul>
       </nav>
 
-      <h1>Search</h1>
+      <h1 id="sr-title">Search</h1>
+      <p class="page-intro" id="sr-intro"></p>
 
       <!-- Annotations for the results page -->
       <div class="sr-notes">
-        <p class="wf-note" data-note="1"><span class="wf-note-label">One index</span>This page, the People search, the Knowledge search and the box on every service page are the same search. A section search is this page with a scope already applied (R20, R28).</p>
+        <p class="wf-note" data-note="1"><span class="wf-note-label">One index</span>Site search, the People directory and the Knowledge index are all this page. People and Knowledge are the same search with a scope applied before anyone types, so they keep their own entry points but share the ranking, synonyms and typeahead (R20, R28).</p>
         <p class="wf-note" data-note="2"><span class="wf-note-label">Ranking</span>People and service pages rank above insights and news; PDFs rank below the firm&rsquo;s own pages. The weights are configuration, not code &mdash; <a href="../pages/search-configuration.html">see them</a> (R21, R42).</p>
         <p class="wf-note" data-note="3"><span class="wf-note-label">Shareable</span>Every query, filter, sort, page and layout is in the address bar. Copy it, bookmark it, or put it in a campaign email and it opens this exact, live view (R27).</p>
         <p class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>Sidebar or top bar for filters? Both are built; switch with the Layout control. Should different sections default differently (R25)?</p>
@@ -325,6 +325,9 @@
 
         <!-- Correction, synonym and scope messages (R28, R30, R31) -->
         <div id="sr-banners"></div>
+
+        <!-- Surname browse for the People directory (R41) -->
+        <div id="sr-letters" class="letter-bar" hidden></div>
 
         <!-- Category tabs: counts for every type stay visible while filtered (R26) -->
         <div id="sr-tabs" class="cat-tabs" role="group" aria-label="Result types"></div>
@@ -381,15 +384,15 @@
         <div class="footer-column">
           <h4>Services</h4>
           <ul>
-            <li><a href="../pages/services.html">A&ndash;Z of services</a></li>
-            <li><a href="../pages/services.html#by-sector">Sectors</a></li>
+            <li><a href="../pages/existing.html?page=services">A&ndash;Z of services</a></li>
+            <li><a href="../pages/search.html?type=services">Search services and sectors</a></li>
             <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Deal">Recent deals</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h4>People</h4>
           <ul>
-            <li><a href="../pages/people.html">Find a lawyer</a></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a></li>
             <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=London">London office</a></li>
             <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=Brussels">Brussels office</a></li>
           </ul>
@@ -397,7 +400,7 @@
         <div class="footer-column">
           <h4>Knowledge</h4>
           <ul>
-            <li><a href="../pages/knowledge.html">All knowledge</a></li>
+            <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge">All knowledge</a></li>
             <li><a href="../pages/search.html?type=news&amp;sort=newest">News</a></li>
             <li><a href="../pages/search.html?type=events&amp;sort=newest">Events</a></li>
             <li><a href="../pages/advanced-search.html">Advanced search</a></li>

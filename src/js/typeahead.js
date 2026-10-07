@@ -55,7 +55,9 @@
   }
 
   function attach(input) {
-    var scope = input.getAttribute('data-scope') || '';
+    /* Read on every keystroke: the results page changes its scope in place. */
+    var scope = '';
+    function readScope() { scope = input.getAttribute('data-scope') || ''; }
     var form = input.closest('form');
     var wrap = input.closest('.ta-wrap') || input.parentElement;
     var listId = 'ta-list-' + (++uid);
@@ -93,6 +95,7 @@
     }
 
     function render() {
+      readScope();
       var q = input.value.trim();
       var groups = TS.suggest(q, scope);
       list.innerHTML = '';

@@ -20,7 +20,7 @@
       <p class="page-intro">A lo-fi, clickable model of the navigation and search we propose for traverssmith.com, built to be reacted to in the workshop and changed afterwards. It shows structure and behaviour only. Visual design is a later phase and is not represented here.</p>
 
       <div class="wf-hub-meta">
-        <span>Version 1</span>
+        <span>Version 1.1</span>
         <span>7 October 2026</span>
         <span>Status: for Workshop 1</span>
       </div>
@@ -28,54 +28,52 @@
       <p class="wf-note" data-note="1"><span class="wf-note-label">About the content</span>Service and sub-service names are Travers Smith&rsquo;s own, from the live A&ndash;Z. Every person, article, deal, event and document is fictional, shaped like the real site so the search can be judged against realistic content. Links that go nowhere go nowhere on purpose.</p>
       <p class="wf-note query" data-note="2"><span class="wf-note-label">How to use it in the room</span>This is ClerksWell&rsquo;s proposal, built from the review&rsquo;s findings, and it is here to be changed. The options it does not take are still recorded in the observations report, and the room can ask for any of them.</p>
 
+      <p class="wf-note" data-note="3"><span class="wf-note-label">Scope</span>Everything in this prototype is navigation or search: the header and its menus, the footer, the search box, the results page and the two section searches that exist today (People and Knowledge). Page templates and the components on them are not changed. Service, profile and other pages appear only as placeholders for the menus and search to land on.</p>
+
       <h2 class="section-title">What it proposes</h2>
       <table class="wf-hub-table">
         <thead><tr><th>Area</th><th>Proposal</th><th>Option</th></tr></thead>
         <tbody>
-          <tr><td>Reaching the service estate</td><td>Every practice and sub-service is browsable from the Services menu, which can be filtered by typing. The five groupings become labelled views over one list. Sub-services sit directly under each service page&rsquo;s introduction.</td><td>A2</td></tr>
+          <tr><td>Reaching the service estate</td><td>Every practice and sub-service is browsable from the Services menu, which can be filtered by typing. The five groupings become labelled views over one list, alongside a view by sector. The A&ndash;Z page is linked from the menu and the footer.</td><td>A2</td></tr>
           <tr><td>Navigation model</td><td>One panel pattern for every primary item: overview, children, one featured item.</td><td>B1</td></tr>
-          <tr><td></td><td>Primary items rebalanced: Services, People, Knowledge (with News), About us (with Difference and International), Careers.</td><td>B2</td></tr>
-          <tr><td></td><td>Task-led entry points (find a lawyer, find a service, latest thinking, get in touch) in the header search and on the home page.</td><td>B3</td></tr>
-          <tr><td>Search</td><td>One index behind every search box, with every capability in the search proposal.</td><td>C4</td></tr>
+          <tr><td></td><td>Primary items rebalanced: Services, People, Knowledge (with News), About us (with Difference and International), Careers. A footer that extends the menu.</td><td>B2</td></tr>
+          <tr><td></td><td>Task-led entry points (find a lawyer, find a service, latest thinking, get in touch) in the header and the search overlay.</td><td>B3</td></tr>
+          <tr><td>Search</td><td>One index behind every search box, with every search capability in the search proposal.</td><td>C4</td></tr>
         </tbody>
       </table>
 
-      <h2 class="section-title" style="margin-top:2.5rem">Page templates</h2>
+      <h2 class="section-title" style="margin-top:2.5rem">Where to look</h2>
       <ul class="wf-hub-list">
-        <li><a href="~/pages/home.html">Home</a> <span class="wf-req">R07</span><p>Task-led entry points and the search box. Start here to try the menus.</p></li>
-        <li><a href="~/pages/services.html">Services A&ndash;Z</a> <span class="wf-req">R01&ndash;R04</span><p>Every practice and sub-service, filterable, with views by type of work and by sector.</p></li>
-        <li><a href="~/pages/service.html?id=pensions">Service page: Pensions</a> <span class="wf-req">R08, R09, R28</span><p>Eight sub-services, none reachable from today&rsquo;s menu, listed directly under the introduction. Scoped search box in the sidebar.</p></li>
-        <li><a href="~/pages/service.html?id=pensions-de-risking-and-insured-solutions">Sub-service page: Pensions De-risking &amp; Insured Solutions</a> <span class="wf-req">R09, R10</span><p>Breadcrumb from its one canonical position, with its parent and siblings.</p></li>
-        <li><a href="~/pages/service.html?id=sector-hotels">Sector page: Hotels</a> <span class="wf-req">R01</span><p>Live today with no route in. Here it is in the menu, the A&ndash;Z and search.</p></li>
-        <li><a href="~/pages/people.html">People</a> <span class="wf-req">R28, R41</span><p>Find a lawyer: scoped search with typeahead, surname A&ndash;Z, office and position.</p></li>
-        <li><a href="~/pages/profile.html?id=eleanor-hartwell">Profile</a> <span class="wf-req">R35</span><p>Service, sector, office and position as routes into the directory; related people generated automatically.</p></li>
-        <li><a href="~/pages/knowledge.html">Knowledge</a> <span class="wf-req">R06, R13, R28</span><p>Scoped search, content types including News, and topics.</p></li>
-        <li><a href="~/pages/search.html">Search results and browse view</a> <span class="wf-req">R20&ndash;R40</span><p>The unified results page. With no query it becomes a browsable, categorised view of everything.</p></li>
+        <li><a href="~/pages/home.html">Header, menus and footer</a> <span class="wf-req">R01&ndash;R07, R11</span><p>Start here. The page body is the existing home page; everything to try is in the header and footer.</p></li>
+        <li><a href="~/pages/search.html">Site search and the browse view</a> <span class="wf-req">R20&ndash;R40</span><p>The unified results page. With no query it becomes a browsable, categorised view of everything.</p></li>
+        <li><a href="~/pages/search.html?type=people&amp;scope=people">People directory</a> <span class="wf-req">R28, R41</span><p>The same search with a People scope: surname A&ndash;Z, office and position filters, and a chip that widens it to the whole site.</p></li>
+        <li><a href="~/pages/search.html?type=knowledge&amp;scope=knowledge">Knowledge index</a> <span class="wf-req">R28</span><p>The same search with a Knowledge scope, News included.</p></li>
         <li><a href="~/pages/advanced-search.html">Advanced search</a> <span class="wf-req">R33</span><p>Visual query builder with a live count and a plain-English readout.</p></li>
-        <li><a href="~/pages/search-configuration.html">How search is configured</a> <span class="wf-req">R42</span><p>Ranking tiers, synonyms, facets and promoted results, read live from the prototype&rsquo;s configuration.</p></li>
+        <li><a href="~/pages/service.html?id=pensions-de-risking-and-insured-solutions">A destination page</a> <span class="wf-req">R09, R12</span><p>An existing sub-service page, reached from the menu. Unchanged, apart from a breadcrumb that follows its place in the menu.</p></li>
+        <li><a href="~/pages/search-configuration.html">How search is configured</a> <span class="wf-req">R42</span><p>About the prototype rather than part of the site: ranking tiers, synonyms, facets and promoted results, read live from its configuration.</p></li>
       </ul>
 
       <h2 class="section-title" style="margin-top:2.5rem">The search proposal, feature by feature</h2>
-      <p>Every capability in <em>Smarter site search for traverssmith.com</em>, and where to try it.</p>
+      <p>The capabilities in <em>Smarter site search for traverssmith.com</em>, and where to try them. One is left out because it would change a page template rather than search.</p>
       <table class="wf-hub-table">
         <thead><tr><th>#</th><th>Capability</th><th>Try this</th></tr></thead>
         <tbody>
           <tr><td>1</td><td>One search box, ranked the way a law firm needs, matches highlighted</td><td><a href="~/pages/search.html?q=private%20equity">private equity</a>: the service first, then the people, then insights. <a href="~/pages/search.html?q=Eleanor%20Hartwell">Eleanor Hartwell</a>: her profile first.</td></tr>
-          <tr><td>2</td><td>Facets with live counts, removable chips, sidebar or top bar, other categories always counted, state in the URL</td><td><a href="~/pages/search.html?q=private%20equity&amp;type=people&amp;position=Partner">Partners in private equity</a>, then remove a chip, switch the layout, and copy the link.</td></tr>
-          <tr><td>3</td><td>Every section keeps its own search, on the same engine, widened in one click</td><td><a href="~/pages/people.html">People</a>, <a href="~/pages/knowledge.html">Knowledge</a> and the box on <a href="~/pages/service.html?id=pensions">any service page</a>. <a href="~/pages/search.html?q=sanctions&amp;type=people&amp;scope=people">sanctions, People only</a> shows what the scope leaves out.</td></tr>
+          <tr><td>2</td><td>Facets with live counts, removable chips, sidebar or top bar, other categories always counted, state in the URL</td><td><a href="~/pages/search.html?q=private%20equity&amp;type=people">private equity, People tab</a>, then tick Partner, remove the chip, switch the layout, and copy the link.</td></tr>
+          <tr><td>3</td><td>Every section keeps its own search, on the same engine, widened in one click</td><td><a href="~/pages/search.html?type=people&amp;scope=people">People</a> and <a href="~/pages/search.html?type=knowledge&amp;scope=knowledge">Knowledge</a>. <a href="~/pages/search.html?q=sanctions&amp;type=people&amp;scope=people">sanctions, People only</a> shows what the scope leaves out.</td></tr>
           <tr><td>4</td><td>Typeahead from the firm&rsquo;s taxonomy</td><td>Type <code>priv</code>, <code>gdpr</code> or <code>share sch</code> in any search box, including the one in the header.</td></tr>
           <tr><td>5</td><td>Typo correction and legal-language synonyms</td><td><a href="~/pages/search.html?q=litagation">litagation</a>, <a href="~/pages/search.html?q=data%20protection">data protection</a>, <a href="~/pages/search.html?q=share%20schemes">share schemes</a>, <a href="~/pages/search.html?q=ai">ai</a>.</td></tr>
           <tr><td>6</td><td>PDFs searchable by their text, not their filename</td><td><a href="~/pages/search.html?q=monitoring%20software">monitoring software</a>: found on page 6 of a hybrid working guide.</td></tr>
           <tr><td>7</td><td>Advanced query builder</td><td><a href="~/pages/advanced-search.html">Advanced search</a>.</td></tr>
           <tr><td>8</td><td>Browsable, categorised view of everything</td><td><a href="~/pages/search.html">Search with no query</a>.</td></tr>
-          <tr><td>9</td><td>Connected profile pages</td><td><a href="~/pages/profile.html?id=priya-lindqvist">Priya Lindqvist</a>: click a service to see everyone in it.</td></tr>
+          <tr><td>9</td><td>Connected profile pages</td><td>Not included. Links and a related-people panel on the profile page would change the profile template, which this work does not touch. Recorded in the report&rsquo;s backlog.</td></tr>
           <tr><td>10</td><td>Sorting that fits how legal content ages</td><td><a href="~/pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=year">Knowledge by publication year</a>; also newest, oldest, A&ndash;Z.</td></tr>
           <tr><td>11</td><td>Further: promoted results</td><td><a href="~/pages/search.html?q=careers">careers</a> (later phase, shown for discussion).</td></tr>
         </tbody>
       </table>
 
       <h2 class="section-title" style="margin-top:2.5rem">Beyond a first phase: listed, not built</h2>
-      <p>Proven on the same engine elsewhere: location-aware search, reference-format matching, sources outside the CMS. To be scoped: search analytics, saved searches and alerts, Word and PowerPoint text, editor-maintained synonyms, a semantic layer. The default answer for each is no; Workshop 2 records the answer rather than assuming it.</p>
+      <p>Proven on the same engine elsewhere: location-aware search, reference-format matching, sources outside the CMS. To be scoped: search analytics, saved searches and alerts, Word and PowerPoint text, editor-maintained synonyms, a semantic layer. The default answer for each is no; The workshop and the written feedback afterwards record the answer rather than assuming it.</p>
 
       <h2 class="section-title" style="margin-top:2.5rem">Modules</h2>
       <ul class="wf-hub-list">

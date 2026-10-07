@@ -7,7 +7,6 @@
         <a href="~/pages/home.html" aria-label="Travers Smith home"><span class="wf-placeholder logo">Travers Smith logo</span></a>
         <ul class="utility-list">
           <li><a href="#">Alumni</a></li>
-          <li><a href="#">Client login</a></li>
           <li><a href="#">Subscribe</a></li>
           <li><a href="#">Contact us</a></li>
         </ul>
@@ -25,8 +24,8 @@
             <a class="nav-link" href="#">Services &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Services menu">
               <div class="mega-head">
-                <a class="mega-overview" href="~/pages/services.html">Services</a>
-                <a href="~/pages/services.html">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
+                <a class="mega-overview" href="~/pages/existing.html?page=services">Services</a>
+                <a href="~/pages/existing.html?page=services">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
                 <div class="mega-filter">
                   <label class="visually-hidden" for="mega-svc-filter">Filter services and sub-services</label>
                   <input type="search" id="mega-svc-filter" data-svc-filter="mega-tree" placeholder="Filter services, e.g. pensions, sanctions, hotels" autocomplete="off">
@@ -69,7 +68,7 @@
             <a class="nav-link" href="#">People &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="People menu">
               <div class="mega-head">
-                <a class="mega-overview" href="~/pages/people.html">People</a>
+                <a class="mega-overview" href="~/pages/search.html?type=people&amp;scope=people">People</a>
                 <a href="~/pages/search.html?type=people&amp;scope=people">Browse everyone</a>
               </div>
               <div class="mega-grid cols-4">
@@ -111,12 +110,12 @@
             </div>
           </li>
 
-          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics are pages, not filters (R13) -->
+          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics open the Knowledge index filtered by topic -->
           <li class="nav-item has-mega">
             <a class="nav-link" href="#">Knowledge &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Knowledge menu">
               <div class="mega-head">
-                <a class="mega-overview" href="~/pages/knowledge.html">Knowledge</a>
+                <a class="mega-overview" href="~/pages/search.html?type=knowledge&amp;scope=knowledge">Knowledge</a>
                 <a href="~/pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
               </div>
               <div class="mega-grid cols-4">
@@ -234,7 +233,7 @@
 
         <!-- Task-led entry points (R07) -->
         <div class="header-actions">
-          <a class="task-link" href="~/pages/people.html">Find a lawyer</a>
+          <a class="task-link" href="~/pages/search.html?type=people&amp;scope=people">Find a lawyer</a>
           <button type="button" class="btn btn-small" data-modal-open="search-overlay">Search</button>
         </div>
       </div>
@@ -257,8 +256,8 @@
         </div>
       </form>
       <div class="search-tasks">
-        <a href="~/pages/people.html">Find a lawyer</a>
-        <a href="~/pages/services.html">Find a service</a>
+        <a href="~/pages/search.html?type=people&amp;scope=people">Find a lawyer</a>
+        <a href="~/pages/search.html?type=services">Find a service</a>
         <a href="~/pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
         <a href="#">Get in touch</a>
       </div>

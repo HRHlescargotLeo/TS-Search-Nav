@@ -18,15 +18,16 @@
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ul class="breadcrumb-list">
           <li class="breadcrumb-item"><a href="~/pages/home.html">Home</a></li>
-          <li class="breadcrumb-item" aria-current="page">Search</li>
+          <li class="breadcrumb-item" aria-current="page" id="sr-crumb">Search</li>
         </ul>
       </nav>
 
-      <h1>Search</h1>
+      <h1 id="sr-title">Search</h1>
+      <p class="page-intro" id="sr-intro"></p>
 
       <!-- Annotations for the results page -->
       <div class="sr-notes">
-        <p class="wf-note" data-note="1"><span class="wf-note-label">One index</span>This page, the People search, the Knowledge search and the box on every service page are the same search. A section search is this page with a scope already applied (R20, R28).</p>
+        <p class="wf-note" data-note="1"><span class="wf-note-label">One index</span>Site search, the People directory and the Knowledge index are all this page. People and Knowledge are the same search with a scope applied before anyone types, so they keep their own entry points but share the ranking, synonyms and typeahead (R20, R28).</p>
         <p class="wf-note" data-note="2"><span class="wf-note-label">Ranking</span>People and service pages rank above insights and news; PDFs rank below the firm&rsquo;s own pages. The weights are configuration, not code &mdash; <a href="~/pages/search-configuration.html">see them</a> (R21, R42).</p>
         <p class="wf-note" data-note="3"><span class="wf-note-label">Shareable</span>Every query, filter, sort, page and layout is in the address bar. Copy it, bookmark it, or put it in a campaign email and it opens this exact, live view (R27).</p>
         <p class="wf-note query" data-note="4"><span class="wf-note-label">Open question</span>Sidebar or top bar for filters? Both are built; switch with the Layout control. Should different sections default differently (R25)?</p>
@@ -52,6 +53,9 @@
 
         <!-- Correction, synonym and scope messages (R28, R30, R31) -->
         <div id="sr-banners"></div>
+
+        <!-- Surname browse for the People directory (R41) -->
+        <div id="sr-letters" class="letter-bar" hidden></div>
 
         <!-- Category tabs: counts for every type stay visible while filtered (R26) -->
         <div id="sr-tabs" class="cat-tabs" role="group" aria-label="Result types"></div>
