@@ -41,7 +41,7 @@
     ['Pensions', ['Corporate Activity & Pensions', 'Pensions De-risking & Insured Solutions', 'Pensions Governance & Administration', 'Pensions Funding, Security & Restructuring', 'Pensions & HR', 'Pensions Liability Management', 'Pensions Investment', 'Pensions Outsourcing, Data Protection & Commercial Contracts']],
     ['Pro Bono', []],
     ['Public M&A', []],
-    ['Real Estate', ['Construction & Engineering', 'Corporate Occupiers', 'Healthcare', 'Real Estate Development', 'Real Estate Investment', 'Real Estate M&A', 'Real Estate Tax', 'Senior Living']],
+    ['Real Estate', ['Construction & Engineering', 'Corporate Occupiers', 'Healthcare', 'Real Estate Development', 'Real Estate Investment', 'Real Estate M&A', 'Real Estate Tax', 'Senior Living', 'Data Centres']],
     ['Restructuring & Insolvency', []],
     ['Secondaries', []],
     ['Tax', ['Pensions Tax', 'Tax for Asset Managers', 'Tax and ESG', 'Tax Structuring & Advisory']],
