@@ -118,6 +118,8 @@
       }, null, true);
 
       list.hidden = false;
+      place();
+      place();
       input.setAttribute('aria-expanded', 'true');
     }
 
@@ -139,6 +141,39 @@
     input.addEventListener('input', render);
     input.addEventListener('focus', function () { if (input.value.trim()) render(); });
     input.addEventListener('blur', function () { window.setTimeout(close, 120); });
+
+    /* The list is fixed to the viewport rather than to its container, so a
+       panel with its own scroll area (the search overlay, a mega-menu) cannot
+       cut it short. It takes all the height left below the box. */
+    function place() {
+      if (list.hidden) return;
+      var r = input.getBoundingClientRect();
+      list.style.position = 'fixed';
+      list.style.left = r.left + 'px';
+      list.style.width = r.width + 'px';
+      list.style.right = 'auto';
+      list.style.top = (r.bottom + 4) + 'px';
+      list.style.maxHeight = Math.max(240, window.innerHeight - r.bottom - 16) + 'px';
+    }
+    window.addEventListener('resize', place);
+    window.addEventListener('scroll', place, true);
+
+    /* The list is fixed to the viewport rather than to its container, so a
+       panel with its own scroll area (the search overlay, a mega-menu) cannot
+       cut it short. It takes all the height left below the box. */
+    function place() {
+      if (list.hidden) return;
+      var r = input.getBoundingClientRect();
+      var below = window.innerHeight - r.bottom - 16;
+      list.style.position = 'fixed';
+      list.style.left = r.left + 'px';
+      list.style.width = r.width + 'px';
+      list.style.top = (r.bottom + 4) + 'px';
+      list.style.right = 'auto';
+      list.style.maxHeight = Math.max(240, below) + 'px';
+    }
+    window.addEventListener('resize', place);
+    window.addEventListener('scroll', place, true);
     input.addEventListener('keydown', function (e) {
       if (list.hidden) {
         if (e.key === 'ArrowDown' && input.value.trim()) { render(); e.preventDefault(); }
