@@ -52,7 +52,7 @@ labels) are shown only in part, because the labels need Travers Smith's input.
 | R20 | One search covers people, services and sectors, knowledge, news, events, documents and firm pages. | SP1, C4 | S01, S17 |
 | R21 | Ranking is tiered by page type: people and services above knowledge and news, documents below pages. A lawyer's name returns their profile first. | SP1 | S02, S03, S06 |
 | R22 | Matching terms are highlighted in the title and in a snippet taken from the matching text. | SP1 | S11 |
-| R23 | Facets with live counts: Service, Sector, Position, Office, Content type, Author, Year, Topic. Values that would return nothing are hidden. | SP2 | S23, S25 |
+| R23 | Facets with live counts: Service, Sector, Position, Content type, Author, Year, Topic. Values that would return nothing are hidden, and so is a facet left with a single option (v1.2). Position is ordered by seniority, Partner first (v1.2). Office removed in v1.2. | SP2 | S23, S25 |
 | R24 | Every applied filter shows as a removable chip, with Clear all. | SP2 | S24 |
 | R25 | Facets can be laid out as a sidebar or as a top bar. | SP2 | — |
 | R26 | While filtered to one content type, the counts for every other type stay visible and accurate. | SP2 | S09, S15 |
@@ -69,7 +69,7 @@ labels) are shown only in part, because the labels need Travers Smith's input.
 | R38 | The zero-results state offers a correction, a broader search and a route to contact. | SP5 | S21 |
 | R39 | Long facets are progressively disclosed and can be filtered within. | SP2 | S22 |
 | R40 | Search announces result counts to assistive technology and is fully keyboard operable. | — | S36 |
-| R41 | The People directory can be browsed A–Z and filtered by office. | SP2 | S26 |
+| R41 | The People directory can be browsed by position (Partner first) and by surname A–Z. Office browse removed in v1.2. | SP2 | S26 |
 | R42 | Ranking tiers, synonym groups and facet fields are declared as configuration, not code. | SP11, C4 | S33 |
 
 ## Later phase — for discussion, not for a first build

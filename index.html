@@ -20,9 +20,9 @@
       <p class="page-intro">A lo-fi, clickable model of the navigation and search we propose for traverssmith.com, built to be reacted to in the workshop and changed afterwards. It shows structure and behaviour only. Visual design is a later phase and is not represented here.</p>
 
       <div class="wf-hub-meta">
-        <span>Version 1.1</span>
-        <span>7 October 2026</span>
-        <span>Status: for Workshop 1</span>
+        <span>Version 1.2</span>
+        <span>13 October 2026</span>
+        <span>Status: after Workshop 1</span>
       </div>
 
       <p class="wf-note" data-note="1"><span class="wf-note-label">About the content</span>Service and sub-service names are Travers Smith&rsquo;s own, from the live A&ndash;Z. Every person, article, deal, event and document is fictional, shaped like the real site so the search can be judged against realistic content. Links that go nowhere go nowhere on purpose.</p>
@@ -30,7 +30,26 @@
 
       <p class="wf-note" data-note="3"><span class="wf-note-label">Scope</span>Everything in this prototype is navigation or search: the header and its menus, the footer, the search box, the results page and the two section searches that exist today (People and Knowledge). Page templates and the components on them are not changed. Service, profile and other pages appear only as placeholders for the menus and search to land on.</p>
 
-      <h2 class="section-title">What it proposes</h2>
+      <h2 class="section-title">What changed in version 1.2</h2>
+      <p>Changes agreed at Workshop 1 on 12 October, or fixes found during it. They apply whichever navigation model is chosen. Version 1.1, as shown in the workshop, is kept at the tag <code>v1-workshop</code>.</p>
+      <table class="wf-hub-table">
+        <thead><tr><th>#</th><th>Where</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>People menu</td><td>&lsquo;By office&rsquo; removed from the People menu, the People page, the filters and advanced search. Two offices don&rsquo;t justify a browse route.</td></tr>
+          <tr><td>2</td><td>People menu and filters</td><td>Position filter listed first, with Partner at the top, in the People menu, the people results and advanced search.</td></tr>
+          <tr><td>3</td><td>Results filters</td><td>A filter group with only one option left, and nothing ticked, is hidden.</td></tr>
+          <tr><td>4</td><td>Advanced search</td><td>Opens on the search you came from, or empty. Never reopens with conditions from an earlier visit, including after Back.</td></tr>
+          <tr><td>5</td><td>Search overlay</td><td>&lsquo;Get in touch&rsquo; goes to Contact us, not to People, so it no longer duplicates Find a lawyer.</td></tr>
+          <tr><td>6</td><td>Search overlay</td><td>&lsquo;Popular searches&rsquo; renamed &lsquo;Suggested searches&rsquo; and annotated as editor-curated, informed by click-through analytics. Never automatic; never names people.</td></tr>
+          <tr><td>7</td><td>Knowledge</td><td>Article and Briefing shown as one type (Briefing). Subject to Travers Smith sign-off.</td></tr>
+          <tr><td>8</td><td>Knowledge</td><td>Annotated as &lsquo;name TBC&rsquo; in the menu and on its page.</td></tr>
+          <tr><td>9</td><td>Every menu</td><td>An explicit &lsquo;overview &rarr;&rsquo; link to each section&rsquo;s landing page. Every top-level section keeps one.</td></tr>
+          <tr><td>10</td><td>Services menu</td><td>Tagging model annotated: one service can sit under several types of work, and the menu filter matches both.</td></tr>
+          <tr><td>11</td><td>People menu</td><td>Surname A&ndash;Z annotated as desktop only unless the design phase can make it work on a phone.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title" style="margin-top:2.5rem">What it proposes</h2>
       <table class="wf-hub-table">
         <thead><tr><th>Area</th><th>Proposal</th><th>Option</th></tr></thead>
         <tbody>
@@ -46,7 +65,7 @@
       <ul class="wf-hub-list">
         <li><a href="./pages/home.html">Header, menus and footer</a> <span class="wf-req">R01&ndash;R07, R11</span><p>Start here. The page body is the existing home page; everything to try is in the header and footer.</p></li>
         <li><a href="./pages/search.html">Site search and the browse view</a> <span class="wf-req">R20&ndash;R40</span><p>The unified results page. With no query it becomes a browsable, categorised view of everything.</p></li>
-        <li><a href="./pages/search.html?type=people&amp;scope=people">People directory</a> <span class="wf-req">R28, R41</span><p>The same search with a People scope: surname A&ndash;Z, office and position filters, and a chip that widens it to the whole site.</p></li>
+        <li><a href="./pages/search.html?type=people&amp;scope=people">People directory</a> <span class="wf-req">R28, R41</span><p>The same search with a People scope: position and surname A&ndash;Z filters, and a chip that widens it to the whole site.</p></li>
         <li><a href="./pages/search.html?type=knowledge&amp;scope=knowledge">Knowledge index</a> <span class="wf-req">R28</span><p>The same search with a Knowledge scope, News included.</p></li>
         <li><a href="./pages/advanced-search.html">Advanced search</a> <span class="wf-req">R33</span><p>Visual query builder with a live count and a plain-English readout.</p></li>
         <li><a href="./pages/service.html?id=pensions-de-risking-and-insured-solutions">A destination page</a> <span class="wf-req">R09, R12</span><p>An existing sub-service page, reached from the menu. Unchanged, apart from a breadcrumb that follows its place in the menu.</p></li>

@@ -26,19 +26,22 @@
       <p class="page-intro">Build a precise search from conditions, without any query syntax.</p>
 
       <div class="sr-notes">
-        <p class="wf-note" data-note="1"><span class="wf-note-label">Who it is for</span>Business development and knowledge teams answering questions like &ldquo;who are our senior corporate lawyers in Brussels?&rdquo; without raising an IT request (R33).</p>
+        <p class="wf-note" data-note="1"><span class="wf-note-label">Who it is for</span>Business development and knowledge teams answering questions like &ldquo;which partners work on competition and sanctions?&rdquo; without raising an IT request (R33).</p>
         <p class="wf-note" data-note="2"><span class="wf-note-label">Behaviour</span>Different fields combine with AND; the same field twice combines with OR. The count and the plain-English readout update as you build. &lsquo;Run this search&rsquo; opens the ordinary results page at a link you can share.</p>
         <p class="wf-note query" data-note="3"><span class="wf-note-label">Open question</span>Public, or behind the client login for internal teams only?</p>
+        <p class="wf-note" data-note="4"><span class="wf-note-label">Starts fresh</span>The builder opens on the search you came from (&lsquo;Refine in advanced search&rsquo; on the results page), or empty from anywhere else. It never reopens with conditions from an earlier visit.</p>
       </div>
 
       <!-- Query builder (R33) -->
       <div id="builder-app">
+        <form autocomplete="off" onsubmit="return false">
         <div class="field" style="max-width:20rem">
           <label for="qb-type">Find</label>
           <select id="qb-type"></select>
         </div>
         <div id="qb-rows"></div>
         <p><button type="button" class="btn btn-secondary btn-small" id="qb-add">+ Add a condition</button></p>
+        </form>
 
         <div class="qb-readout" aria-live="polite" id="qb-readout"></div>
 
@@ -51,8 +54,8 @@
           <aside class="aside-box">
             <h2>Examples</h2>
             <ul>
-              <li><button type="button" class="btn-link" data-example="pe-partners">Partners in private equity, London</button></li>
-              <li><button type="button" class="btn-link" data-example="brussels">Brussels lawyers in competition or sanctions</button></li>
+              <li><button type="button" class="btn-link" data-example="pe-partners">Partners in private equity</button></li>
+              <li><button type="button" class="btn-link" data-example="competition">Lawyers in competition or sanctions</button></li>
               <li><button type="button" class="btn-link" data-example="pensions-2026">2026 pensions knowledge mentioning trustees</button></li>
             </ul>
           </aside>

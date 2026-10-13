@@ -19,7 +19,6 @@
     { key: 'position', label: 'Position' },
     { key: 'service', label: 'Service' },
     { key: 'sector', label: 'Sector' },
-    { key: 'office', label: 'Office' },
     { key: 'ktype', label: 'Content type' },
     { key: 'author', label: 'Author' },
     { key: 'topic', label: 'Topic' },
@@ -31,15 +30,14 @@
     position: function (v) { return 'whose position is ' + v; },
     service: function (v, t) { return (t === 'people' ? 'who work in ' : 'tagged to ') + v; },
     sector: function (v, t) { return (t === 'people' ? 'who work in the ' : 'in the ') + v + ' sector'; },
-    office: function (v) { return 'based in ' + v; },
     ktype: function (v) { return 'of type ' + v; },
     author: function (v) { return 'written by ' + v; },
     topic: function (v) { return 'on ' + v; },
     year: function (v) { return 'from ' + v; }
   };
   var EXAMPLES = {
-    'pe-partners': { type: 'people', rows: [['position', 'Partner'], ['service', 'Private Equity & Financial Sponsors'], ['office', 'London']] },
-    'brussels': { type: 'people', rows: [['office', 'Brussels'], ['service', 'Competition'], ['service', 'Export Control & Sanctions']] },
+    'pe-partners': { type: 'people', rows: [['position', 'Partner'], ['service', 'Private Equity & Financial Sponsors']] },
+    'competition': { type: 'people', rows: [['service', 'Competition'], ['service', 'Export Control & Sanctions']] },
     'pensions-2026': { type: 'knowledge', rows: [['service', 'Pensions'], ['year', '2026'], ['keyword', 'trustees']] }
   };
 
@@ -48,10 +46,14 @@
     if (f.key === 'keyword') return;
     var set = {};
     TS.docs.forEach(function (d) { (d.facets[f.key] || []).forEach(function (v) { set[v] = true; }); });
-    values[f.key] = Object.keys(set).sort(function (a, b) { return f.key === 'year' ? b.localeCompare(a) : a.localeCompare(b); });
+    values[f.key] = Object.keys(set).sort(function (a, b) {
+      if (f.key === 'year') return b.localeCompare(a);
+      if (f.key === 'position') return TS.positionRank(a) - TS.positionRank(b);
+      return a.localeCompare(b);
+    });
   });
 
-  var model = { type: 'people', rows: [] };
+  var model = { type: '', rows: [] };
   var host;
 
   function $(id) { return document.getElementById(id); }
@@ -127,6 +129,23 @@
     $('qb-run').setAttribute('href', TS.pageUrl('search.html', TS.toParams(state)));
   }
 
+  /* Start from the address bar, never from a previous visit (v1.2, item 4).
+     Arriving from the results page carries that search in; arriving from
+     anywhere else starts empty. */
+  function fromUrl() {
+    var st = TS.readState();
+    var rows = [];
+    if (st.q) rows.push({ field: 'keyword', value: st.q });
+    FIELDS.forEach(function (f) {
+      if (f.key === 'keyword') return;
+      (st.filters[f.key] || []).forEach(function (v) { rows.push({ field: f.key, value: v }); });
+    });
+    if (!rows.length) rows.push({ field: 'keyword', value: '' });
+    model.type = st.type || '';
+    model.rows = rows;
+    render();
+  }
+
   function load(key) {
     var ex = EXAMPLES[key];
     model.type = ex.type;
@@ -137,7 +156,10 @@
   document.addEventListener('DOMContentLoaded', function () {
     host = $('builder-app');
     if (!host) return;
-    load('pe-partners');
+    fromUrl();
+    /* Back/Forward can restore this page from the browser's cache with the
+       old conditions still in it; rebuild from the URL instead. */
+    window.addEventListener('pageshow', function (e) { if (e.persisted) fromUrl(); });
 
     host.addEventListener('change', function (e) {
       var t = e.target;

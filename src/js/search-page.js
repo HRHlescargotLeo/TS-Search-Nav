@@ -23,8 +23,8 @@
 
   /* Which facets make sense for which result type. */
   var FACETS_FOR = {
-    '': ['service', 'sector', 'ktype', 'topic', 'year', 'position', 'office', 'author'],
-    people: ['service', 'sector', 'position', 'office'],
+    '': ['service', 'sector', 'ktype', 'topic', 'year', 'position', 'author'],
+    people: ['position', 'service', 'sector'],
     services: ['sector'],
     knowledge: ['service', 'ktype', 'topic', 'author', 'year'],
     news: ['service', 'year'],
@@ -92,7 +92,7 @@
   /* The People directory and the Knowledge index are this page with a scope
      applied, so the heading follows the scope (R28). */
   var HEADINGS = {
-    people: ['People', 'Find a lawyer by name, service, sector or office.', 'Search for a lawyer by name, service or sector\u2026'],
+    people: ['People', 'Find a lawyer by name, position, service or sector.', 'Search for a lawyer by name, service or sector\u2026'],
     knowledge: ['Knowledge', 'Briefings, articles, deals, podcasts, videos and events.', 'Search briefings, articles, podcasts and videos\u2026'],
     '': ['Search', '', 'Search people, services, insights and documents']
   };
@@ -209,6 +209,14 @@
       b.setAttribute('aria-pressed', String(b.getAttribute('data-layout') === state.layout));
     });
     $('sr-body').className = 'sr-body layout-' + state.layout;
+    /* Advanced search opens on the search you are looking at, not on
+       whatever was built there last (v1.2, item 4). */
+    var adv = $('sr-advanced');
+    if (adv) {
+      var ap = TS.toParams(state);
+      delete ap.page; delete ap.layout; delete ap.sort; delete ap.raw; delete ap.scope;
+      adv.setAttribute('href', TS.pageUrl('advanced-search.html', ap));
+    }
   }
 
   /* --- Facets (R23, R25, R39) -------------------------------------------- */
@@ -216,6 +224,9 @@
     var selected = state.filters[key] || [];
     var visible = values.filter(function (v) { return v.count > 0 || selected.indexOf(v.value) >= 0; });
     if (!visible.length) return '';
+    /* A facet with a single option and nothing ticked cannot narrow anything
+       further, so it is hidden rather than offered (v1.2, item 3). */
+    if (visible.length === 1 && !selected.length) return '';
     var limit = 5;
     var expanded = ui.expanded[key];
     var showFilter = visible.length > 8;

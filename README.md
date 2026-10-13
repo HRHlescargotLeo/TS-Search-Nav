@@ -6,7 +6,10 @@ traverssmith.com. Structure and behaviour only: greyscale by design, no visual d
 Service and sub-service names are Travers Smith's own (live A–Z, October 2026). Every
 person, article, deal, event and document is **fictional**.
 
-**Version 1.1 · 7 October 2026 · for Workshop 1 · navigation and search only**
+**Version 1.2 · 13 October 2026 · after Workshop 1 · navigation and search only**
+
+Version 1.2 makes the uncontroversial changes from Workshop 1; the change log is on the
+contents page. Version 1.1, as presented, is tagged `v1-workshop`.
 
 ## Viewing it
 

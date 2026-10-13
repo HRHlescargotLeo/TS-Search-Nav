@@ -22,7 +22,7 @@
       </nav>
 
       <h1>People</h1>
-      <p class="page-intro">Find a lawyer by name, service, sector or office.</p>
+      <p class="page-intro">Find a lawyer by name, position, service or sector.</p>
 
       <!-- People section search: the unified engine with a People scope (R28, R29) -->
       <section aria-labelledby="find-head">
@@ -40,19 +40,8 @@
         <p class="wf-note" data-note="1"><span class="wf-note-label">Behaviour</span>Typing a service here (try &lsquo;priv&rsquo; or &lsquo;gdpr&rsquo;) offers to show the people in that service. Results open on the site search with a removable &lsquo;People only&rsquo; chip, so someone who doesn&rsquo;t find what they need is one click from searching everything (R28, F25).</p>
       </section>
 
-      <!-- A–Z and office browse (R41) -->
+      <!-- Position and surname browse (R41). Office browse removed in v1.2 -->
       <div class="grid grid-3">
-        <section class="aside-box">
-          <h2>By surname</h2>
-          <div class="letter-grid" data-render="letter-grid"></div>
-        </section>
-        <section class="aside-box">
-          <h2>By office</h2>
-          <ul>
-            <li><a href="~/pages/search.html?type=people&amp;scope=people&amp;office=London">London</a> <span class="wf-meta" data-count-people="office=London"></span></li>
-            <li><a href="~/pages/search.html?type=people&amp;scope=people&amp;office=Brussels">Brussels</a> <span class="wf-meta" data-count-people="office=Brussels"></span></li>
-          </ul>
-        </section>
         <section class="aside-box">
           <h2>By position</h2>
           <ul>
@@ -60,11 +49,16 @@
             <li><a href="~/pages/search.html?type=people&amp;scope=people&amp;position=Senior%20Counsel">Senior counsel</a> <span class="wf-meta" data-count-people="position=Senior Counsel"></span></li>
             <li><a href="~/pages/search.html?type=people&amp;scope=people&amp;position=Senior%20Associate">Senior associates</a> <span class="wf-meta" data-count-people="position=Senior Associate"></span></li>
             <li><a href="~/pages/search.html?type=people&amp;scope=people&amp;position=Associate">Associates</a> <span class="wf-meta" data-count-people="position=Associate"></span></li>
+            <li><a href="~/pages/search.html?type=people&amp;scope=people&amp;position=Knowledge%20Lawyer">Knowledge lawyers</a> <span class="wf-meta" data-count-people="position=Knowledge Lawyer"></span></li>
           </ul>
+        </section>
+        <section class="aside-box">
+          <h2>By surname</h2>
+          <div class="letter-grid" data-render="letter-grid"></div>
         </section>
       </div>
       <p><a class="btn btn-secondary" href="~/pages/search.html?type=people&amp;scope=people&amp;sort=az">Browse everyone A&ndash;Z</a></p>
-      <p class="wf-note" data-note="2"><span class="wf-note-label">Why it is here</span>Today the directory has no office filter and no alphabetical index. Both are here, and both are ordinary filters on the same search, so they combine with service and sector.</p>
+      <p class="wf-note" data-note="2"><span class="wf-note-label">Why it is here</span>Position comes first, with Partner at the top, because partners are who most visitors are looking for. Position and the surname index are ordinary filters on the same search, so they combine with service and sector. There is no office browse: with two offices it adds little.</p>
 
     </div>
   </main>

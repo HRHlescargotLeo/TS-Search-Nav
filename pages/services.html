@@ -19,9 +19,8 @@
         <a href="../pages/home.html" aria-label="Travers Smith home"><span class="wf-placeholder logo">Travers Smith logo</span></a>
         <ul class="utility-list">
           <li><a href="#">Alumni</a></li>
-          <li><a href="#">Client login</a></li>
           <li><a href="#">Subscribe</a></li>
-          <li><a href="#">Contact us</a></li>
+          <li><a href="../pages/existing.html?page=contact">Contact us</a></li>
         </ul>
       </div>
     </nav>
@@ -37,8 +36,8 @@
             <a class="nav-link" href="#">Services &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Services menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/services.html">Services</a>
-                <a href="../pages/services.html">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
+                <a class="mega-overview" href="../pages/existing.html?page=services">Services overview &rarr;</a>
+                <a href="../pages/existing.html?page=services">Full A&ndash;Z of services <span class="svc-count" data-count="services"></span></a>
                 <div class="mega-filter">
                   <label class="visually-hidden" for="mega-svc-filter">Filter services and sub-services</label>
                   <input type="search" id="mega-svc-filter" data-svc-filter="mega-tree" placeholder="Filter services, e.g. pensions, sanctions, hotels" autocomplete="off">
@@ -59,6 +58,7 @@
                     <div class="tab-panel" id="mega-panel-views">
                       <p class="mega-hint">Four views over the same list of services. A service can appear in more than one view; each still has one home.</p>
                       <div data-render="service-views"></div>
+                      <p class="wf-note wf-note-compact" data-note="N"><span class="wf-note-label">Tagging</span>Editors tag each service to one or more types of work; the views are built from those tags. The filter box above matches both the service name and its types of work.</p>
                     </div>
                     <div class="tab-panel" id="mega-panel-sectors">
                       <p class="mega-hint">The industries we work in, each drawing on lawyers from several practices.</p>
@@ -76,33 +76,24 @@
             </div>
           </li>
 
-          <!-- People mega-menu: same pattern (R05); find a lawyer, A–Z and office browse (R07, R41) -->
+          <!-- People mega-menu: same pattern (R05); find a lawyer, position first, surname A–Z (R07, R41). Office browse removed in v1.2: two offices do not justify a browse route -->
           <li class="nav-item has-mega">
             <a class="nav-link" href="#">People &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="People menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/people.html">People</a>
+                <a class="mega-overview" href="../pages/people.html">People overview &rarr;</a>
                 <a href="../pages/search.html?type=people&amp;scope=people">Browse everyone</a>
               </div>
               <div class="mega-grid cols-4">
                 <div class="mega-col">
                   <h5>Find a lawyer</h5>
-                  <form action="~/pages/search.html" method="get" role="search">
+                  <form action="../pages/search.html" method="get" role="search">
                     <input type="hidden" name="type" value="people"><input type="hidden" name="scope" value="people">
                     <div class="ta-wrap">
                       <label class="visually-hidden" for="mega-people-q">Search for a lawyer</label>
                       <input type="search" id="mega-people-q" name="q" data-typeahead data-scope="people" placeholder="Name, service or sector" autocomplete="off">
                     </div>
                   </form>
-                  <h5 style="margin-top:1rem">By office</h5>
-                  <ul>
-                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=London">London</a></li>
-                    <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=Brussels">Brussels</a></li>
-                  </ul>
-                </div>
-                <div class="mega-col">
-                  <h5>By surname</h5>
-                  <div class="letter-grid" data-render="letter-grid"></div>
                 </div>
                 <div class="mega-col">
                   <h5>By position</h5>
@@ -114,6 +105,11 @@
                     <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Knowledge%20Lawyer">Knowledge lawyers</a></li>
                   </ul>
                 </div>
+                <div class="mega-col">
+                  <h5>By surname</h5>
+                  <div class="letter-grid" data-render="letter-grid"></div>
+                  <p class="wf-note wf-note-compact" data-note="N"><span class="wf-note-label">Desktop only</span>Shown at desktop width unless the design phase can make the letters work as touch targets on a phone. Whether it stays at all is still open.</p>
+                </div>
                 <div class="mega-featured">
                   <p class="result-type">Featured</p>
                   <p><a href="#">Media contacts</a></p>
@@ -123,19 +119,18 @@
             </div>
           </li>
 
-          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics are pages, not filters (R13) -->
+          <!-- Knowledge mega-menu: type and topic, Newsroom folded in as News (R05, R06); topics open the Knowledge index filtered by topic -->
           <li class="nav-item has-mega">
-            <a class="nav-link" href="#">Knowledge &#9662;</a>
+            <a class="nav-link" href="#">Knowledge <span class="wf-tbc">(name TBC)</span> &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Knowledge menu">
               <div class="mega-head">
-                <a class="mega-overview" href="../pages/knowledge.html">Knowledge</a>
+                <a class="mega-overview" href="../pages/knowledge.html">Knowledge overview &rarr;</a>
                 <a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
               </div>
               <div class="mega-grid cols-4">
                 <div class="mega-col">
                   <h5>By type</h5>
                   <ul>
-                    <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Article">Articles</a></li>
                     <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Briefing">Briefings</a></li>
                     <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Deal">Deals</a></li>
                     <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Podcast|Video">Podcasts and video</a></li>
@@ -158,6 +153,7 @@
                   <p class="result-type">Featured</p>
                   <p><a href="#">Private Capital Forum 2026 &mdash; 12 November, London</a></p>
                   <p><a href="#">Subscribe to updates</a></p>
+                  <p class="wf-note wf-note-compact query" data-note="N"><span class="wf-note-label">Name TBC</span>&lsquo;Knowledge&rsquo; is a working label; Travers Smith plans to rename this section. Articles and briefings are shown as one type, subject to sign-off.</p>
                 </div>
               </div>
             </div>
@@ -168,7 +164,7 @@
             <a class="nav-link" href="#">About us &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="About us menu">
               <div class="mega-head">
-                <a class="mega-overview" href="#">About us</a>
+                <a class="mega-overview" href="../pages/existing.html?page=about">About us overview &rarr;</a>
               </div>
               <div class="mega-grid cols-4">
                 <div class="mega-col">
@@ -193,7 +189,7 @@
                   <ul>
                     <li><a href="#">Our offices</a></li>
                     <li><a href="#">Alumni</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="../pages/existing.html?page=contact">Contact us</a></li>
                   </ul>
                 </div>
                 <div class="mega-featured">
@@ -209,7 +205,7 @@
             <a class="nav-link" href="#">Careers &#9662;</a>
             <div class="nav-flyout mega" role="region" aria-label="Careers menu">
               <div class="mega-head">
-                <a class="mega-overview" href="#">Careers</a>
+                <a class="mega-overview" href="../pages/existing.html?page=careers">Careers overview &rarr;</a>
                 <a href="#">Current vacancies</a>
               </div>
               <div class="mega-grid cols-4">
@@ -246,7 +242,7 @@
 
         <!-- Task-led entry points (R07) -->
         <div class="header-actions">
-          <a class="task-link" href="../pages/people.html">Find a lawyer</a>
+          <a class="task-link" href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a>
           <button type="button" class="btn btn-small" data-modal-open="search-overlay">Search</button>
         </div>
       </div>
@@ -259,7 +255,7 @@
     <div class="wf-modal-panel">
       <button type="button" class="wf-modal-close" aria-label="Close search">&times;</button>
       <h2 id="search-overlay-title">Search Travers Smith</h2>
-      <form action="~/pages/search.html" method="get" role="search">
+      <form action="../pages/search.html" method="get" role="search">
         <div class="search-row">
           <div class="ta-wrap">
             <label class="visually-hidden" for="overlay-q">Search people, services and knowledge</label>
@@ -269,18 +265,20 @@
         </div>
       </form>
       <div class="search-tasks">
-        <a href="../pages/people.html">Find a lawyer</a>
-        <a href="../pages/services.html">Find a service</a>
+        <a href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a>
+        <a href="../pages/search.html?type=services">Find a service</a>
         <a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;sort=newest">Latest thinking</a>
-        <a href="#">Get in touch</a>
+        <a href="../pages/existing.html?page=contact">Get in touch</a>
       </div>
-      <p class="wf-meta">Popular searches</p>
+      <!-- Suggested searches: editor-curated, never automatic (v1.2, item 6) -->
+      <p class="wf-meta">Suggested searches</p>
       <ul class="chip-list">
         <li><a href="../pages/search.html?q=private%20equity">private equity</a></li>
         <li><a href="../pages/search.html?q=pensions%20buyout">pensions buyout</a></li>
         <li><a href="../pages/search.html?q=sanctions">sanctions</a></li>
         <li><a href="../pages/search.html?q=careers">careers</a></li>
       </ul>
+      <p class="wf-note wf-note-compact" data-note="N"><span class="wf-note-label">Curated, not automatic</span>Editors choose these. A review screen in the CMS lists the searches that lead to a click-through, from analytics, so editors can add or override terms. Nothing appears automatically, and people&rsquo;s names never do.</p>
     </div>
   </div>
 
@@ -336,23 +334,23 @@
         <div class="footer-column">
           <h4>Services</h4>
           <ul>
-            <li><a href="../pages/services.html">A&ndash;Z of services</a></li>
-            <li><a href="../pages/services.html#by-sector">Sectors</a></li>
+            <li><a href="../pages/existing.html?page=services">A&ndash;Z of services</a></li>
+            <li><a href="../pages/search.html?type=services">Search services and sectors</a></li>
             <li><a href="../pages/search.html?type=knowledge&amp;scope=knowledge&amp;ktype=Deal">Recent deals</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h4>People</h4>
           <ul>
-            <li><a href="../pages/people.html">Find a lawyer</a></li>
-            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=London">London office</a></li>
-            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;office=Brussels">Brussels office</a></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people">Find a lawyer</a></li>
+            <li><a href="../pages/search.html?type=people&amp;scope=people&amp;position=Partner">Partners</a></li>
+            <li><a href="../pages/people.html">People overview</a></li>
           </ul>
         </div>
         <div class="footer-column">
           <h4>Knowledge</h4>
           <ul>
-            <li><a href="../pages/knowledge.html">All knowledge</a></li>
+            <li><a href="../pages/knowledge.html">Knowledge overview</a></li>
             <li><a href="../pages/search.html?type=news&amp;sort=newest">News</a></li>
             <li><a href="../pages/search.html?type=events&amp;sort=newest">Events</a></li>
             <li><a href="../pages/advanced-search.html">Advanced search</a></li>
@@ -361,15 +359,15 @@
         <div class="footer-column">
           <h4>The firm</h4>
           <ul>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a href="../pages/existing.html?page=about">About us</a></li>
+            <li><a href="../pages/existing.html?page=careers">Careers</a></li>
+            <li><a href="../pages/existing.html?page=contact">Contact us</a></li>
             <li><a href="#">Legal and regulatory</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>Travers Smith &mdash; search and navigation prototype v1</span>
+        <span>Travers Smith &mdash; search and navigation prototype v1.2</span>
         <span>Wireframe: structure and behaviour only, not a design. Fictional people and content.</span>
       </div>
     </div>

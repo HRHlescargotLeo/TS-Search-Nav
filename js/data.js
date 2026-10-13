@@ -202,12 +202,17 @@
       { key: 'service', label: 'Service' },
       { key: 'sector', label: 'Sector' },
       { key: 'position', label: 'Position' },
-      { key: 'office', label: 'Office' },
       { key: 'ktype', label: 'Content type' },
       { key: 'author', label: 'Author' },
       { key: 'topic', label: 'Topic' },
       { key: 'year', label: 'Year' }
     ],
+    /* Position values in seniority order, so Partner always comes first in
+       the facet, the people menu and advanced search (v1.2, item 2). */
+    positionOrder: ['Partner', 'Senior Counsel', 'Senior Associate', 'Associate', 'Knowledge Lawyer'],
+    /* Content types shown as one (v1.2, item 7). Article and Briefing are a
+       loose internal distinction; merged subject to Travers Smith sign-off. */
+    contentTypeAliases: { 'Article': 'Briefing' },
     /* Result categories, in tab order (R26). */
     categories: [
       { key: 'people', label: 'People' },

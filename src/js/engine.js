@@ -71,6 +71,11 @@
   });
 
   /* --- People ----------------------------------------------------------- */
+  var POSITION_ORDER = C.positionOrder || [];
+  function positionRank(v) {
+    var i = POSITION_ORDER.indexOf(v);
+    return i < 0 ? POSITION_ORDER.length : i;
+  }
   var people = D.PEOPLE.map(function (p) {
     return { id: p[0], name: p[1], position: p[2], office: p[3], services: p[4], sectors: p[5], summary: p[6] };
   });
@@ -121,17 +126,19 @@
   });
 
   var CAT_FOR_TYPE = { 'News': 'news', 'Event': 'events' };
+  var TYPE_ALIAS = C.contentTypeAliases || {};
   D.KNOWLEDGE.forEach(function (k) {
     var authors = k[5].map(function (id) { return personById[id] ? personById[id].name : id; });
     var cat = CAT_FOR_TYPE[k[1]] || 'knowledge';
+    var ktype = TYPE_ALIAS[k[1]] || k[1];
     addDoc({
       id: k[0], cat: cat, tierKey: cat === 'news' ? 'News' : cat === 'events' ? 'Event' : 'Knowledge',
-      typeLabel: k[1],
+      typeLabel: ktype,
       title: k[2], date: k[3], url: '#',
       summary: k[7],
-      meta: [k[1], formatDate(k[3])].concat(authors.length ? [authors.join(', ')] : []),
+      meta: [ktype, formatDate(k[3])].concat(authors.length ? [authors.join(', ')] : []),
       tagText: k[4].concat(k[6], authors).join(' '),
-      facets: { service: k[4], author: authors, topic: k[6], ktype: [k[1]], year: [k[3].slice(0, 4)] }
+      facets: { service: k[4], author: authors, topic: k[6], ktype: [ktype], year: [k[3].slice(0, 4)] }
     });
   });
 
@@ -384,6 +391,7 @@
       out.facets[k] = Object.keys(tally).map(function (v) { return { value: v, count: tally[v] }; })
         .sort(function (a, b) {
           if (k === 'year') return b.value.localeCompare(a.value);
+          if (k === 'position') return positionRank(a.value) - positionRank(b.value);
           return b.count - a.count || a.value.localeCompare(b.value);
         });
     });
@@ -515,6 +523,6 @@
     people: people, personById: personById, docs: docs,
     readState: readState, toParams: toParams, search: search,
     highlight: highlight, snippet: snippet, suggest: suggest, passes: passes,
-    FACET_KEYS: FACET_KEYS
+    FACET_KEYS: FACET_KEYS, positionRank: positionRank
   };
 })();

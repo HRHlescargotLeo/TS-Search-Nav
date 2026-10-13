@@ -57,7 +57,10 @@
   /* --- Any other existing page ------------------------------------------ */
   var EXISTING = {
     services: ['Services', 'Services A–Z page. Today’s A–Z, now linked from the Services menu and the footer'],
-    home: ['Home', 'home page']
+    home: ['Home', 'home page'],
+    about: ['About us', 'About us landing page'],
+    careers: ['Careers', 'Careers landing page'],
+    contact: ['Contact us', 'Contact us page']
   };
   function renderExisting(host) {
     var key = param('page') || 'services';
