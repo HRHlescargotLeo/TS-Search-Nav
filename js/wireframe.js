@@ -245,28 +245,29 @@
   }
 
   /* --- Annotation toggle -------------------------------------------------
-     Injects the floating control only when the page actually has notes, and
-     remembers the choice for the session so a reviewer clicking through ten
-     pages does not have to hide notes ten times. */
+     Injects the floating control only when the page actually has notes.
+     Notes are hidden on first load (v1.2) and appear only when someone
+     selects 'Show annotations'; the choice is remembered for the session so
+     a reviewer clicking through ten pages does not have to switch ten times. */
   function initNotes() {
     if (!document.querySelector('.wf-note')) return;
 
-    var hidden = false;
-    try { hidden = window.sessionStorage.getItem('wf-notes-hidden') === '1'; } catch (e) { /* private mode */ }
+    var hidden = true;
+    try { hidden = window.sessionStorage.getItem('wf-notes-shown') !== '1'; } catch (e) { /* private mode */ }
 
     var button = document.createElement('button');
     button.type = 'button';
     button.className = 'wf-notes-toggle';
 
     function apply() {
-      document.body.classList.toggle('wf-notes-hidden', hidden);
+      document.body.classList.toggle('wf-notes-shown', !hidden);
       button.textContent = hidden ? 'Show annotations' : 'Hide annotations';
       button.setAttribute('aria-pressed', hidden ? 'true' : 'false');
     }
 
     button.addEventListener('click', function () {
       hidden = !hidden;
-      try { window.sessionStorage.setItem('wf-notes-hidden', hidden ? '1' : '0'); } catch (e) { /* private mode */ }
+      try { window.sessionStorage.setItem('wf-notes-shown', hidden ? '0' : '1'); } catch (e) { /* private mode */ }
       apply();
     });
 

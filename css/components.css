@@ -106,7 +106,7 @@
 /* --------------------------------------------------------------------------
    Annotation layer
    Numbered notes explaining behaviour a screenshot cannot show, plus open
-   questions for the client. Toggled by the .wf-notes-hidden class on <body>
+   questions for the client. Hidden until the .wf-notes-shown class is on <body>
    so the same file serves both a working review and a clean screenshot.
    -------------------------------------------------------------------------- */
 .wf-note {
@@ -139,7 +139,8 @@
 .wf-note.query::before { background: var(--wf-note-query-border); }
 .wf-note-label { display: block; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; font-size: 0.6875rem; margin-bottom: 0.125rem; }
 
-body.wf-notes-hidden .wf-note { display: none; }
+/* Hidden by default in CSS, so notes never flash up before the script runs */
+body:not(.wf-notes-shown) .wf-note { display: none; }
 
 .wf-notes-toggle {
   position: fixed;
@@ -422,4 +423,4 @@ mark { background: var(--wf-placeholder); color: inherit; font-weight: 700; padd
 .wf-note.wf-note-compact { margin: 0.75rem 0 0; padding: 0.5rem 0.75rem 0.5rem 2.25rem; font-size: 0.8125rem; }
 .wf-note.wf-note-compact::before { left: 0.5rem; top: 0.5rem; width: 1.25rem; height: 1.25rem; font-size: 0.6875rem; }
 .wf-tbc { font-size: 0.75rem; font-weight: 400; color: var(--wf-text-muted); }
-body.wf-notes-hidden .wf-tbc { display: none; }
+body:not(.wf-notes-shown) .wf-tbc { display: none; }
