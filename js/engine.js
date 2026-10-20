@@ -276,6 +276,11 @@
   /* --- State <-> URL (R27) ---------------------------------------------- */
   var FACET_KEYS = C.facets.map(function (f) { return f.key; });
 
+  /* The filter layout's default follows the navigation model (slot F). */
+  function defaultLayout() {
+    return window.TSModels && window.TSModels.get('f') === '2' ? 'topbar' : 'sidebar';
+  }
+
   function readState(search) {
     var p = new URLSearchParams(search || window.location.search);
     var state = {
@@ -284,7 +289,7 @@
       scope: p.get('scope') || '',
       sort: p.get('sort') || 'relevance',
       page: parseInt(p.get('page'), 10) || 1,
-      layout: p.get('layout') || 'sidebar',
+      layout: p.get('layout') || defaultLayout(),
       letter: (p.get('letter') || '').toUpperCase().slice(0, 1),
       raw: p.get('raw') === '1',
       filters: {}
@@ -307,7 +312,7 @@
     if (state.sort && state.sort !== 'relevance') p.sort = state.sort;
     if (state.page > 1) p.page = String(state.page);
     if (state.letter) p.letter = state.letter;
-    if (state.layout && state.layout !== 'sidebar') p.layout = state.layout;
+    if (state.layout && state.layout !== defaultLayout()) p.layout = state.layout;
     if (state.raw) p.raw = '1';
     return p;
   }

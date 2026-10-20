@@ -488,6 +488,12 @@
       }
     });
 
+    /* Switching model changes the default filter layout. */
+    document.addEventListener('ts:model-change', function () {
+      state = TS.readState();
+      render();
+    });
+
     window.addEventListener('popstate', function () {
       state = TS.readState();
       render();

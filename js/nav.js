@@ -169,6 +169,72 @@
     });
   }
 
+  /* --- Alternative Services menus (v1.3, slots S2–S4) ------------------- */
+  function serviceList(names) {
+    var ul = el('ul');
+    names.forEach(function (name) {
+      var s = TS.serviceByName[name];
+      if (!s) return;
+      var li = el('li');
+      li.appendChild(el('a', { href: svcUrl(s) }, TS.esc(name)));
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+  function newPageUrl(kind, name) { return TS.pageUrl('new-page.html', { kind: kind, title: name }); }
+
+  /* S2: services grouped by client. */
+  function renderClientGroups(host) {
+    D.CLIENT_GROUPS.forEach(function (g) {
+      var col = el('div', { 'class': 'mega-col' });
+      col.appendChild(el('h5', {}, TS.esc(g.name)));
+      col.appendChild(serviceList(g.services));
+      host.appendChild(col);
+    });
+  }
+
+  /* S3: one client group's issues, each with the services that answer it. */
+  function renderIssues(host) {
+    (D.ISSUES[host.getAttribute('data-group')] || []).forEach(function (issue) {
+      var card = el('div', { 'class': 'issue-card' });
+      var h = el('h5');
+      h.appendChild(el('a', { href: newPageUrl('issue', issue.name) }, TS.esc(issue.name)));
+      card.appendChild(h);
+      card.appendChild(el('p', { 'class': 'issue-summary' }, TS.esc(issue.summary)));
+      card.appendChild(serviceList(issue.services));
+      host.appendChild(card);
+    });
+  }
+
+  /* S3: a client group whose issues are not yet defined shows its services. */
+  function renderIssueStub(host) {
+    var g = D.CLIENT_GROUPS.filter(function (x) { return x.id === host.getAttribute('data-group'); })[0];
+    if (!g) return;
+    host.appendChild(el('p', { 'class': 'mega-hint' }, 'Issues for ' + TS.esc(g.name.replace(/ \(name TBC\)$/, '').toLowerCase()) +
+      ' are still to be defined. Until they are, this tab lists the services in the group.'));
+    var wrap = el('div', { 'class': 'grid grid-3' });
+    var names = g.services.slice();
+    var per = Math.ceil(names.length / 3);
+    for (var i = 0; i < 3; i++) {
+      var col = el('div', { 'class': 'mega-col' });
+      col.appendChild(serviceList(names.slice(i * per, (i + 1) * per)));
+      wrap.appendChild(col);
+    }
+    host.appendChild(wrap);
+  }
+
+  /* S4: focus areas, each with three headline services. */
+  function renderFocus(host) {
+    D.FOCUS_AREAS.forEach(function (f) {
+      var card = el('div', { 'class': 'issue-card' });
+      var h = el('h5');
+      h.appendChild(el('a', { href: newPageUrl('focus', f.name) }, TS.esc(f.name)));
+      card.appendChild(h);
+      card.appendChild(serviceList(f.services));
+      host.appendChild(card);
+    });
+  }
+
   /* --- Wire up ---------------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('[data-render="service-tree"]').forEach(renderTree);
@@ -176,6 +242,10 @@
     document.querySelectorAll('[data-render="sector-list"]').forEach(renderSectors);
     document.querySelectorAll('[data-render="letter-grid"]').forEach(renderLetters);
     document.querySelectorAll('[data-render="topic-links"]').forEach(renderTopics);
+    document.querySelectorAll('[data-render="client-groups"]').forEach(renderClientGroups);
+    document.querySelectorAll('[data-render="issues"]').forEach(renderIssues);
+    document.querySelectorAll('[data-render="issue-stub"]').forEach(renderIssueStub);
+    document.querySelectorAll('[data-render="focus-areas"]').forEach(renderFocus);
 
     var total = TS.services.filter(function (s) { return s.kind !== 'Sector'; }).length;
     document.querySelectorAll('[data-count="services"]').forEach(function (n) { n.textContent = '(' + total + ')'; });
@@ -185,8 +255,9 @@
       if (!host) return;
       input.addEventListener('input', function () {
         /* Filtering always shows the A–Z tab, where the matches are. */
-        var tab = document.querySelector('[data-tab="mega-panel-az"]');
-        if (tab && host.id === 'mega-tree' && !tab.classList.contains('active')) tab.click();
+        var panel = host.closest('.tab-panel');
+        var tab = panel && document.querySelector('[data-tab="' + panel.id + '"]');
+        if (tab && !tab.classList.contains('active')) tab.click();
         applyFilter(host, input.value);
       });
     });

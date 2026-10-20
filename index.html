@@ -20,9 +20,9 @@
       <p class="page-intro">A lo-fi, clickable model of the navigation and search we propose for traverssmith.com, built to be reacted to in the workshop and changed afterwards. It shows structure and behaviour only. Visual design is a later phase and is not represented here.</p>
 
       <div class="wf-hub-meta">
-        <span>Version 1.2</span>
-        <span>13 October 2026</span>
-        <span>Status: after Workshop 1</span>
+        <span>Version 1.3</span>
+        <span>20 October 2026</span>
+        <span>Status: four models for review</span>
       </div>
 
       <p class="wf-note" data-note="1"><span class="wf-note-label">About the content</span>Service and sub-service names are Travers Smith&rsquo;s own, from the live A&ndash;Z. Every person, article, deal, event and document is fictional, shaped like the real site so the search can be judged against realistic content. Links that go nowhere go nowhere on purpose.</p>
@@ -30,7 +30,33 @@
 
       <p class="wf-note" data-note="3"><span class="wf-note-label">Scope</span>Everything in this prototype is navigation or search: the header and its menus, the footer, the search box, the results page and the two section searches that exist today (People and Knowledge). Page templates and the components on them are not changed. Service, profile and other pages appear only as placeholders for the menus and search to land on.</p>
 
-      <h2 class="section-title">What changed in version 1.2</h2>
+      <h2 class="section-title">Four navigation models</h2>
+      <p>Workshop 1 left several questions open. Rather than pick answers, the prototype now holds four complete models. Switch between them with the dark bar at the top of every page; the choice follows you from page to page. &lsquo;Mix and match&rsquo; on the same bar sets each option separately.</p>
+      <table class="wf-hub-table">
+        <thead><tr><th>Model</th><th>Services menu</th><th>Top of each menu</th><th>People</th><th>Suggested searches</th><th>Results filters</th><th>Open it</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A: v1 refined</strong></td><td>Every practice A&ndash;Z with its sub-services, plus views by type of work and sector</td><td>Links only</td><td>People menu: search and position</td><td>Curated, in the search box</td><td>Top bar</td><td><a href="./pages/home.html?model=A">Model A</a></td></tr>
+          <tr><td><strong>B: Client groups</strong></td><td>Today&rsquo;s services grouped under the three client groups. <em>Placeholder groupings</em></td><td>Short overview</td><td>People menu: search and position</td><td>Trending topics in Knowledge only</td><td>Top bar</td><td><a href="./pages/home.html?model=B">Model B</a></td></tr>
+          <tr><td><strong>C: Issue-led</strong></td><td>Client group, then issue, then services. Asset managers worked through; <em>illustrative issues</em>, each a new page</td><td>Short overview</td><td>No People menu: Find a lawyer only</td><td>Trending topics in Knowledge only</td><td>Sidebar</td><td><a href="./pages/home.html?model=C">Model C</a></td></tr>
+          <tr><td><strong>D: Lean, search-first</strong></td><td>Six focus areas up front, the full A&ndash;Z one click away. <em>Illustrative focus areas</em></td><td>Promo banner</td><td>No People menu: Find a lawyer only</td><td>None</td><td>Sidebar</td><td><a href="./pages/home.html?model=D">Model D</a></td></tr>
+        </tbody>
+      </table>
+      <p class="wf-note query" data-note="4"><span class="wf-note-label">Placeholders</span>The client groups, issues and focus areas are ClerksWell&rsquo;s illustrations, built only from service names on the live site. They are there to be replaced with Travers Smith&rsquo;s own. Every model keeps the same search, and every service stays in the A&ndash;Z.</p>
+      <p>Before choosing, see <a href="./pages/patterns.html">how ten other firms organise their menus</a>.</p>
+
+      <h2 class="section-title">What changed in version 1.3</h2>
+      <table class="wf-hub-table">
+        <thead><tr><th>#</th><th>Where</th><th>Change</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Every page</td><td>A model bar switches between Models A to D, or sets each option by hand. The address bar carries the model, so a link opens the same one.</td></tr>
+          <tr><td>2</td><td>Services menu</td><td>Three new versions: client groups (B), issue-led (C), focus areas then A&ndash;Z (D). The A&ndash;Z and the filter box are in all of them.</td></tr>
+          <tr><td>3</td><td>Every menu</td><td>The top of each menu panel can show a short section overview or a promo banner, so the room can judge both.</td></tr>
+          <tr><td>4</td><td>People menu</td><td>Three levels of detail (search, position and surname; search and position; search only), and an option with no People menu at all.</td></tr>
+          <tr><td>5</td><td>Reference</td><td><a href="./pages/patterns.html">How other firms do it</a>: a scan of ten firms&rsquo; menus, and what it means for the models.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title" style="margin-top:2.5rem">What changed in version 1.2</h2>
       <p>Changes agreed at Workshop 1 on 12 October, or fixes found during it. They apply whichever navigation model is chosen. Version 1.1, as shown in the workshop, is kept at the tag <code>v1-workshop</code>.</p>
       <table class="wf-hub-table">
         <thead><tr><th>#</th><th>Where</th><th>Change</th></tr></thead>
@@ -69,6 +95,7 @@
         <li><a href="./pages/search.html?type=knowledge&amp;scope=knowledge">Knowledge index</a> <span class="wf-req">R28</span><p>The same search with a Knowledge scope, News included.</p></li>
         <li><a href="./pages/advanced-search.html">Advanced search</a> <span class="wf-req">R33</span><p>Visual query builder with a live count and a plain-English readout.</p></li>
         <li><a href="./pages/service.html?id=pensions-de-risking-and-insured-solutions">A destination page</a> <span class="wf-req">R09, R12</span><p>An existing sub-service page, reached from the menu. Unchanged, apart from a breadcrumb that follows its place in the menu.</p></li>
+        <li><a href="./pages/patterns.html">How other firms do it</a> <span class="wf-req">v1.3</span><p>About the prototype rather than part of the site: how ten firms organise their menus, and what that means for Models A to D.</p></li>
         <li><a href="./pages/search-configuration.html">How search is configured</a> <span class="wf-req">R42</span><p>About the prototype rather than part of the site: ranking tiers, synonyms, facets and promoted results, read live from its configuration.</p></li>
       </ul>
 

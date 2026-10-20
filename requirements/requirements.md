@@ -78,3 +78,13 @@ labels) are shown only in part, because the labels need Travers Smith's input.
 |---|---|---|---|
 | R50 | Promoted results ("best bets") pin an editorially chosen page to the top for named queries. Demonstrated on the query *careers*. | SP11 | S07 |
 | R51 | Listed on the hub, not built: search analytics, saved searches and alerts, further document formats, editor-maintained synonyms, a semantic layer, location-aware search, reference-format matching, non-CMS sources. | SP11 | S31, S34 |
+
+## Version 1.3 — navigation models
+
+| ID | Requirement | Traces to | Report requirement |
+|---|---|---|---|
+| R60 | Every page can switch between navigation Models A–D, or set each open option separately; the choice persists across pages and is carried in the URL. | Workshop 1 | — |
+| R61 | The Services menu can be shown as all practices A–Z with views (S1), client groups (S2), issue-led (S3) or focus areas then A–Z (S4). Groupings, issues and focus areas are placeholders for Travers Smith to replace. | Workshop 1 | — |
+| R62 | The top of each menu panel can be links only (H0), a short section overview (H1) or a promo banner (H2). | Workshop 1 | — |
+| R63 | The People menu can be removed (P2), or show search, position and surname (C1), search and position (C2) or search only (C3). | Workshop 1 | — |
+| R64 | Suggested searches can be none (Q0), curated in the search box (Q1) or replaced by curated trending topics in Knowledge (Q2). | Workshop 1 | — |

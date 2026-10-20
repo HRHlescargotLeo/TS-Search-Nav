@@ -6,7 +6,10 @@ traverssmith.com. Structure and behaviour only: greyscale by design, no visual d
 Service and sub-service names are Travers Smith's own (live A–Z, October 2026). Every
 person, article, deal, event and document is **fictional**.
 
-**Version 1.2 · 13 October 2026 · after Workshop 1 · navigation and search only**
+**Version 1.3 · 20 October 2026 · four navigation models · navigation and search only**
+
+Version 1.3 adds four switchable navigation models (A–D) via a bar at the top of every
+page; see `src/js/models.js` for the slots and presets.
 
 Version 1.2 makes the uncontroversial changes from Workshop 1; the change log is on the
 contents page. Version 1.1, as presented, is tagged `v1-workshop`.
@@ -44,6 +47,8 @@ the only requirement; there are no dependencies.
   synonyms, facets, promoted results): `src/js/data.js`
 - Search engine: `src/js/engine.js`; results page: `src/js/search-page.js`
 - Menus: `src/includes/header.html` and `src/js/nav.js`
+- Navigation models and their slots: `src/js/models.js`; model groupings in `src/js/data.js`;
+  variants are marked `data-only="S2"` / `data-hide="H2"` in the header
 - Visual design layer, when the project reaches it: `src/css/theme.css` only
 
 Every block in the pages carries a comment naming its requirement, e.g. `(R28)`, so

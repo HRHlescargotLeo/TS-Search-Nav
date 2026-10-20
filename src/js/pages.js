@@ -73,6 +73,20 @@
       '<h1>' + esc(e[0]) + '</h1>' + unchanged(e[1]);
   }
 
+  /* --- Proposed new page (Models C and D) -------------------------------- */
+  function renderNew(host) {
+    var title = param('title') || 'New page';
+    var kind = param('kind') === 'focus' ? 'focus area' : 'client issue';
+    document.title = title + ' — Travers Smith prototype';
+    host.innerHTML =
+      '<nav class="breadcrumb" aria-label="Breadcrumb"><ul class="breadcrumb-list">' +
+      crumb(TS.pageUrl('home.html'), 'Home') +
+      crumb(TS.pageUrl('existing.html', { page: 'services' }), 'Services') +
+      '<li class="breadcrumb-item" aria-current="page">' + esc(title) + '</li></ul></nav>' +
+      '<h1>' + esc(title) + '</h1>' +
+      '<div class="wf-placeholder unchanged">New ' + esc(kind) + ' page &mdash; content to be written by Travers Smith</div>';
+  }
+
   /* --- Configuration view (R42) ----------------------------------------- */
   function renderConfig(host) {
     var C = D.CONFIG;
@@ -98,5 +112,6 @@
     if ($('profile-app')) renderProfile($('profile-app'));
     if ($('existing-app')) renderExisting($('existing-app'));
     if ($('config-app')) renderConfig($('config-app'));
+    if ($('new-page-app')) renderNew($('new-page-app'));
   });
 })();

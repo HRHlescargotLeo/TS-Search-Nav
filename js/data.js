@@ -231,7 +231,45 @@
     }
   };
 
+  /* --- Navigation models (v1.3) ---------------------------------------
+     Alternative ways of organising the Services menu, used by Models B, C
+     and D. All of these are PLACEHOLDERS for Travers Smith to replace: the
+     groupings, issue names and focus areas are ClerksWell's illustrations,
+     built only from service names that exist on the live site today. */
+
+  /* Model B: existing services regrouped under the three client groups
+     named at Workshop 1. The third group's name is still to be confirmed. */
+  var CLIENT_GROUPS = [
+    { id: 'asset-managers', name: 'Asset managers and funds', services: ['Alternative Asset Management', 'Asset Management', 'Funds', 'Private Funds', 'Fund Finance', 'Secondaries', 'Private Equity & Financial Sponsors', 'Tax for Asset Managers', 'Financial Services Regulation', 'Incentives & Remuneration', 'Financial Markets Disputes'] },
+    { id: 'corporates', name: 'Corporates', services: ['Corporate M&A', 'Public M&A', 'Equity Capital Markets', 'Corporate Advisory and Governance', 'Commercial Law', 'Technology & Commercial Transactions', 'Employment', 'Pensions', 'Real Estate', 'Competition', 'Data Protection', 'Tax', 'Restructuring & Insolvency', 'Corporate & Commercial Disputes'] },
+    { id: 'intermediaries', name: 'Intermediaries (name TBC)', services: ['Financial Services & Markets', 'Fintech, Market Infrastructure & Payments', 'Derivatives & Structured Products', 'Finance', 'Specialty & Structured Finance', 'Pensions De-risking & Insured Solutions', 'Investigations', 'Financial Markets Disputes'] }
+  ];
+
+  /* Model C: issue-led. Asset managers is the worked example, in the shape
+     the asset management group described (five client issues, each mapped
+     to services). The issue names are illustrative, not the group's own. */
+  var ISSUES = {
+    'asset-managers': [
+      { id: 'fundraising', name: 'Fundraising', summary: 'Raising, structuring and financing a fund', services: ['Private Funds', 'Funds', 'Fund Finance', 'Tax for Asset Managers'] },
+      { id: 'running-the-manager', name: 'Running the manager', summary: 'Building, governing and rewarding the business', services: ['Asset Management', 'Financial Services Regulation', 'Incentives & Remuneration', 'Employment'] },
+      { id: 'investing-and-exiting', name: 'Investing and exiting', summary: 'Buying, building and selling portfolio companies', services: ['Private Equity & Financial Sponsors', 'Secondaries', 'Corporate M&A', 'Leveraged & Acquisition Finance'] },
+      { id: 'staying-compliant', name: 'Staying compliant', summary: 'Regulation, data, sanctions and sustainability', services: ['Financial Services Regulation', 'Data Protection', 'Export Control & Sanctions', 'Sustainable Finance and Investment'] },
+      { id: 'disputes-and-investigations', name: 'Disputes and investigations', summary: 'When something goes wrong', services: ['Financial Markets Disputes', 'Investigations', 'Corporate & Commercial Disputes'] }
+    ]
+  };
+
+  /* Model D: a few focus areas up front, the full A–Z one click away. */
+  var FOCUS_AREAS = [
+    { id: 'private-capital', name: 'Private capital', services: ['Private Equity & Financial Sponsors', 'Funds', 'Secondaries'] },
+    { id: 'asset-management', name: 'Asset management', services: ['Asset Management', 'Alternative Asset Management', 'Tax for Asset Managers'] },
+    { id: 'pensions', name: 'Pensions', services: ['Pensions', 'Pensions De-risking & Insured Solutions', 'Pensions Disputes'] },
+    { id: 'disputes', name: 'Disputes and investigations', services: ['Corporate & Commercial Disputes', 'Investigations', 'Arbitration'] },
+    { id: 'financial-services', name: 'Financial services', services: ['Financial Services & Markets', 'Finance', 'Derivatives & Structured Products'] },
+    { id: 'real-estate', name: 'Real estate', services: ['Real Estate', 'Real Estate Investment', 'Construction & Engineering'] }
+  ];
+
   window.TS_DATA = {
+    CLIENT_GROUPS: CLIENT_GROUPS, ISSUES: ISSUES, FOCUS_AREAS: FOCUS_AREAS,
     SERVICE_TREE: SERVICE_TREE, SECTORS: SECTORS, VIEWS: VIEWS, TOPICS: TOPICS,
     PEOPLE: PEOPLE, KNOWLEDGE: KNOWLEDGE, DOCUMENTS: DOCUMENTS, PAGES: PAGES, CONFIG: CONFIG
   };
