@@ -1,4 +1,4 @@
-# Travers Smith — search and navigation prototype
+## Travers Smith — search and navigation prototype
 
 A lo-fi, interactive wireframe of the navigation and search ClerksWell proposes for
 traverssmith.com. Structure and behaviour only: greyscale by design, no visual design.
